@@ -1,0 +1,30 @@
+.button__container {
+  align-self: center;
+  width: 25%;
+  height: 2rem;
+  border: .3rem solid;
+  padding: 3.5rem;
+  position: relative;
+  border-radius: 1.7rem;
+}
+
+.button {
+  font-size: 2rem;
+  font-weight: 600;
+  min-width: 15rem;
+  width: 120%;
+  height: 85%;
+  padding: 2rem;
+  position: absolute;
+  border-radius: inherit;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+}
+
+.button__container:has(.button:hover) {
+  transition: width 300ms ease-in-out;
+  width: 12%;
+}

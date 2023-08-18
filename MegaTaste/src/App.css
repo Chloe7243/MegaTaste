@@ -1,42 +1,36 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #ffd404;
+  --secondary-color: #f3274c;
+  --light-color: #fff;
+  --dark-color: #000;
+  --left-right-padding: 5rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html {
+  font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body{
+  font-size: 2rem;
 }
 
-.card {
-  padding: 2em;
+/* ::-webkit-scrollbar{
+
 }
 
-.read-the-docs {
-  color: #888;
+::-webkit-scrollbar-thumb{
+
 }
+
+::-webkit-scrollbar-track{
+
+} */

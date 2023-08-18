@@ -24,7 +24,19 @@ form > div > input {
   padding: 2rem;
   border: 1px solid black;
   border-radius: 2rem;
-  font-size: 1.7rem;
+  font-size: 2.2rem;
+}
+
+form > div > p{
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  margin-top: .5rem;
+  color: #000;
+  font-weight: 500;
+}
+
+form > div:has(p) > label {
+  transform: translateY(-100%);
 }
 
 input:focus {
@@ -39,9 +51,11 @@ input:not(:placeholder-shown) ~ label {
   color: #555;
 }
 
-input::-ms-fill{
-    background: #000;
+form > div:has(p) >input:focus ~ label,
+form > div:has(p) >input:not(:placeholder-shown) ~ label, form > div:has(p) >input:auto-fill ~ label {
+  transform: translateY(-220%);
 }
+
 
 form > div > label {
   position: absolute;
@@ -54,10 +68,10 @@ form > div > label {
     font-size 200ms ease-in;
 }
 
-form .button{
-    background-color: var(--primary-color);
+form .button {
+  background-color: var(--primary-color);
 }
 
-form .button{
-    background-color: var(--primary-color);
+form .button {
+  background-color: var(--primary-color);
 }

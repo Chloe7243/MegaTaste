@@ -1,0 +1,64 @@
+.cart {
+  height: inherit;
+  background: var(--light-color);
+  max-width: 40rem;
+  margin-left: calc(100% - 40rem);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.cart header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  padding: none;
+  border-spacing: 0;
+}
+
+.cart table td {
+  padding: 1rem 0 3rem;
+  border-top: 2px solid #e4dada;
+}
+
+.cart table th {
+  text-align: right;
+}
+
+.cart table th:first-of-type {
+  text-align: left;
+}
+
+.cart:has(.empty-cart) {
+  align-items: center;
+}
+
+.empty-cart p {
+  font-size: 3rem;
+}
+
+.empty-cart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.empty-cart button {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--light-color);
+}

@@ -1,0 +1,57 @@
+.info {
+  background-color: var(--secondary-color);
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 550;
+  letter-spacing: .1rem;
+}
+
+.info > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.info > div > div {
+  /* background: #000; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+.info__contact {
+  flex: 1 1 auto;
+  justify-content: space-between;
+  max-width: 40%;
+}
+
+.info__social-media {
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+}
+
+.info__account {
+  font-size: 3.5rem;
+  gap: 1rem;
+}
+
+.info a {
+  color: inherit;
+}
+
+.info a:hover {
+  color: var(--primary-color);
+}
+
+.info__account > span > a,
+.info__account > span {
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+
+.info span {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}

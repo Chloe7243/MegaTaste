@@ -1,10 +1,26 @@
 import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
+import RootLayout from "./Components/RootLayout/RootLayout";
 import Login from "./Components/Forms/Login";
 import SignUp from "./Components/Forms/SignUp";
-import NavBar from "./Components/NavBar/NavBar";
-import Footer from "./Components/Footer/Footer";
+
+import AllCategories from "./Components/AllCategoriesPage/AllCategories";
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
+import HomePage from "./Components/HomePage/HomePage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: `/login/`, element: <Login /> },
+      { path: `/sign_up/`, element: <SignUp /> },
+      { path: `/categories/`, element: <AllCategories /> },
+    ],
+  },
+  // { path: `/categories/${categoryName}`, element: <HomePage/>},
+]);
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -54,23 +70,7 @@ function App() {
     }
     setIsLoading(false);
   };
-  return (
-    <>
-      <NavBar />
-      <button onClick={fetchProducts}>Get Products</button>
-      <div>
-        <CategoryPage
-          products={products}
-          categoryName={"Food"}
-          isLoading={isLoading}
-          error={error}
-        />
-      </div>
-      <Login />
-      {/* <SignUp /> */}
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

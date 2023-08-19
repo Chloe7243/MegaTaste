@@ -3,29 +3,19 @@ import Button from "../UI/Button/Button";
 import { useEffect, useState } from "react";
 
 const SignUp = () => {
-  const [inputValues, setInputValues] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
-
-  const [inputsValidity, setInputsValidity] = useState({
-    email: true,
-    password: true,
-  });
-
   const [disabled, setDisabled] = useState(true);
+  const [inputValues, setInputValues] = useState({});
+  const [inputsValidity, setInputsValidity] = useState({});
 
   useEffect(() => {
     setDisabled(
       !(
-        inputValues.email &&
-        inputsValidity.email &&
-        inputValues.firstname &&
-        inputValues.lastname &&
-        inputValues.password &&
-        inputsValidity.password
+        inputValues?.email &&
+        inputsValidity?.email &&
+        inputValues?.firstname &&
+        inputValues?.lastname &&
+        inputValues?.password &&
+        inputsValidity?.password
       )
     );
   }, [inputValues, inputsValidity]);
@@ -41,14 +31,13 @@ const SignUp = () => {
   const inputFormHandler = (event) => {
     const validInput = checkValidity(event.target.value, event.target.name);
 
-    if (event.target.name === "email" || event.target.name === "password") {
-      setInputsValidity((prevState) => {
-        return {
-          ...prevState,
-          [event.target.name]: validInput,
-        };
-      });
-    }
+    setInputsValidity((prevState) => {
+      return {
+        ...prevState,
+        [event.target.name]: validInput,
+      };
+    });
+
     if (!validInput) return;
     setInputValues((prevState) => {
       return {
@@ -72,17 +61,12 @@ const SignUp = () => {
     );
     const data = await response.json();
     console.log(data);
-    setInputValues({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-    });
+    setInputValues({});
     event.target.reset();
   };
 
   return (
-    <Form onSubmit={formSubmitHandler}>
+    <Form onSubmit={formSubmitHandler} key={0}>
       <h2>Create account</h2>
       <div>
         <input
@@ -116,7 +100,7 @@ const SignUp = () => {
           autoComplete="off"
         />
         <label htmlFor="email">Email</label>
-        {!inputsValidity.email && (
+        {inputsValidity?.email === false && (
           <p>Email must include '@' and a valid domain after the '@'</p>
         )}
       </div>
@@ -130,15 +114,11 @@ const SignUp = () => {
           autoComplete="off"
         />
         <label htmlFor="password">Password</label>
-        {!inputsValidity.password && (
+        {inputsValidity?.password === false && (
           <p>Password must contain at least 8 characters</p>
         )}
       </div>
-      <Button
-        disabled={disabled}
-        containerStyle={{ borderColor: "var(--primary-color)" }}
-        buttonStyle={{ backgroundColor: "var(--primary-color)" }}
-      >
+      <Button disabled={disabled} color={"var(--primary-color)"}>
         Create
       </Button>
       <a href="">Login</a>

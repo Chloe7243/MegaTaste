@@ -1,32 +1,40 @@
 .button__container {
-  align-self: center;
-  width: 25%;
-  height: 2rem;
-  border: 0.3rem solid;
-  padding: 3.5rem;
+  width: 100%;
+  /* height: 5rem; */
+  min-height: fit-content;
   position: relative;
-  border-radius: 1.7rem;
+  padding: 3.5rem;
+  border-radius: 1.5rem;
+  max-width: 25rem;
 }
+
+.button__outline {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  border: 0.3rem solid;
+  height: 100%;
+  width: 70%;
+  padding: 1rem;
+  border-radius: inherit;
+  transition: width 300ms ease-in;}
 
 .button {
-  font-size: 2rem;
-  font-weight: 600;
-  min-width: 15rem;
-  width: 120%;
-  height: 85%;
-  padding: 2rem;
-  position: absolute;
   border-radius: inherit;
+  position: absolute;
+  height: 80%;
+  width: 80%;
   top: 50%;
-  left: 5%;
   transform: translateY(-50%);
-  border: none;
-  cursor: pointer;
+  right: 7%;
 }
 
-.button__container:has(.button:enabled:hover) {
-  transition: width 300ms ease-in-out;
-  width: 12%;
+.button:hover {
+  text-decoration: underline;
+}
+
+.button__container:has(.button:enabled:hover) > .button__outline {
+  width: 30%;
 }
 
 .button:disabled {
@@ -35,7 +43,7 @@
   /* opacity: 0.7; */
 }
 
-.button__container:has(.button:disabled) {
+.button__container:has(.button:disabled) > .button__outline{
   border-color: #969696 !important;
   opacity: 0.6;
 }

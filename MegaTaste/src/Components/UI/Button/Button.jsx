@@ -1,9 +1,19 @@
-import styles from "./Button.module.css"
+import styles from "./Button.module.css";
 
-const Button = ({ children, containerStyle, buttonStyle, disabled }) => {
+const Button = ({ children, disabled, color }) => {
   return (
-    <div className={styles.button__container} style={{...containerStyle}}>
-      <button disabled={disabled} className={styles.button} style={buttonStyle}>{children}</button>
+    <div className={styles.button__container}>
+      <div
+        className={styles.button__outline}
+        style={{ borderColor: color }}
+      ></div>
+      <button
+        disabled={disabled}
+        className={styles.button}
+        style={{backgroundColor: color }}
+      >
+        {children}
+      </button>
     </div>
   );
 };

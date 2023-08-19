@@ -3,34 +3,19 @@ import Button from "../UI/Button/Button";
 import { useEffect, useState } from "react";
 
 const Login = () => {
-  const [inputValues, setInputValues] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [inputsValidity, setInputsValidity] = useState({
-    email: true,
-    password: true,
-  });
-
-  const [disabled, setDisabled] = useState(true);
-
   const [user, setUser] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const [inputValues, setInputValues] = useState({});
+  const [inputsValidity, setInputsValidity] = useState({});
   const [incorrectPassword, setIncorrectPassword] = useState(null);
-  console.log(
-    inputValues.email,
-    inputsValidity.email,
-    inputValues.password,
-    inputsValidity.password
-  );
 
   useEffect(() => {
     setDisabled(
       !(
-        inputValues.email &&
-        inputsValidity.email &&
-        inputValues.password &&
-        inputsValidity.password
+        inputValues?.email &&
+        inputsValidity?.email &&
+        inputValues?.password &&
+        inputsValidity?.password
       )
     );
     setUser("");
@@ -46,14 +31,13 @@ const Login = () => {
 
   const inputFormHandler = (event) => {
     const validInput = checkValidity(event.target.value, event.target.name);
-    if (event.target.name === "email" || event.target.name === "password") {
-      setInputsValidity((prevState) => {
-        return {
-          ...prevState,
-          [event.target.name]: validInput,
-        };
-      });
-    }
+    setInputsValidity((prevState) => {
+      return {
+        ...prevState,
+        [event.target.name]: validInput,
+      };
+    });
+
     if (!validInput) return;
     setInputValues((prevState) => {
       return {
@@ -65,39 +49,10 @@ const Login = () => {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    const response = await fetch(
-      "https://megataste-a6d27-default-rtdb.firebaseio.com/users.json"
-    );
-    const data = await response.json();
-    for (const id in data) {
-      if (
-        data[id].email === inputValues.email &&
-        data[id].password === inputValues.password
-      ) {
-        setUser(id);
-        setInputValues({
-          email: "",
-          password: "",
-        });
-        event.target.reset();
-        break;
-      } else if (
-        data[id].email === inputValues.email &&
-        data[id].password != inputValues.password
-      ) {
-        setIncorrectPassword(false);
-        break;
-      }
-      console.log(data[id].email);
-    }
-    setUser(null);
   };
 
-  console.log(disabled);
-  console.log(user);
-
   return (
-    <Form onSubmit={formSubmitHandler}>
+    <Form onSubmit={formSubmitHandler} key={1}>
       <h2>Login</h2>
       <div>
         <input
@@ -106,13 +61,13 @@ const Login = () => {
           id="email"
           placeholder=" "
           onChange={inputFormHandler}
-          onBlur={inputFormHandler}
+          autoComplete="off"
         />
         <label htmlFor="email">Email</label>
-        {!inputsValidity.email && (
+        {inputsValidity.email === false && (
           <p>Email must include '@' and a valid domain after the '@'</p>
         )}
-        {inputValues.email && user === null && incorrectPassword != false && (
+        {inputValues?.email && user === null && incorrectPassword != false && (
           <p>Invalid Email Adress</p>
         )}
       </div>
@@ -123,20 +78,16 @@ const Login = () => {
           id="password"
           placeholder=" "
           onChange={inputFormHandler}
-          onBlur={inputFormHandler}
+          autoComplete="off"
         />
         <label htmlFor="password">Password</label>
-        {!inputsValidity.password && (
+        {inputsValidity?.password === false && (
           <p>Password must contain at least 8 characters</p>
         )}
-        {incorrectPassword === false && <p>Incorret Password</p>}
+        {incorrectPassword === false && <p>Incorrect Password</p>}
       </div>
       <a href="">Forgot Your Password</a>
-      <Button
-        disabled={disabled}
-        containerStyle={{ borderColor: "var(--primary-color)" }}
-        buttonStyle={{ backgroundColor: "var(--primary-color)" }}
-      >
+      <Button disabled={disabled} color={"var(--primary-color)"}>
         Login
       </Button>
       <a href="">Create Your Account</a>

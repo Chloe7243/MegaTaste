@@ -3,25 +3,31 @@
   align-items: center;
   gap: 2rem;
   padding-top: 1rem;
+  border-top: 1px solid #cacaca;
 }
 
 .product-details img {
   width: 10rem;
 }
-
-.details > span:first-child {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #555;
+.details{
+  width: 100%;
 }
 
-.details > span:first-child > p:first-child {
+.details > span:first-of-type{
+  color: #555;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.details > span > span{
+  /* background: #000; */
+  display: flex;
+  justify-content: space-between;
   color: black;
 }
 
 .details > span:last-child {
   margin-top: 2rem;
-  width: 270%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,6 +61,4 @@
 
 .total-price {
   font-weight: 600;
-  display: flex;
-  float: right;
 }

@@ -10,33 +10,33 @@ const CartProduct = ({ img }) => {
       : setQuantity((prev) => (prev -= 1));
   };
   return (
-    <>
-      <td >
-        <div className={styles["product-details"]}>
-          <img src={img} alt="" />
-          <div className={styles.details}>
-            <span>
-              <p>Item Name</p>
-              <p>Item Price</p>
-              <p>Item Size</p>
-            </span>
-            <span className={styles.quantity}>
-              <span>
-                <button onClick={changeQuantity} disabled={quantity === 1}>
-                  -
-                </button>
-                {quantity}
-                <button onClick={changeQuantity}>+</button>
-              </span>
-              <button className={styles.delete}>
-                <MdDelete />
-              </button>
-            </span>
-          </div>
-        </div>
-      </td>
-      <td className={styles["total-price"]}>{"\u20A6 " + quantity * 3500}</td>
-    </>
+    <div className={styles["product-details"]}>
+      <img src={img} alt="" />
+      <div className={styles.details}>
+        <span>
+          <span>
+            <p>Item Name</p>
+            <p className={styles["total-price"]}>
+              {"\u20A6 " + quantity * 3500}
+            </p>
+          </span>
+          <p>Item Price</p>
+          <p>Item Size</p>
+        </span>
+        <span className={styles.quantity}>
+          <span>
+            <button onClick={changeQuantity} disabled={quantity === 1}>
+              -
+            </button>
+            {quantity}
+            <button onClick={changeQuantity}>+</button>
+          </span>
+          <button className={styles.delete}>
+            <MdDelete />
+          </button>
+        </span>
+      </div>
+    </div>
   );
 };
 

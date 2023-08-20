@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag, HiOutlineSearch } from "react-icons/hi";
 
 import styles from "./NavBar.module.css";
+import Logo from "../Logo/Logo" 
 import logo from "../../assets/logo.png";
 import Button from "../UI/Button/Button";
 import logoName from "../../assets/logo_name.png";
@@ -12,11 +13,7 @@ const NavBar = () => {
     <Container className={styles.navbar__container}>
       <header className={styles.navbar}>
         <div className={styles["navbar__mobile"]}></div>
-        <div className={styles["navbar-logo"]}>
-          <img src={logo} alt="" />
-          <span className={styles.bar}></span>
-          <img src={logoName} alt="" />
-        </div>
+        <Logo logo={logo} logoName={logoName} color="var(--primary-color)" />
         <nav className={styles["navbar-links"]}>
           <Link to={"/"}>Home</Link>
           <Link to={"/categories"}>Menus</Link>
@@ -26,10 +23,10 @@ const NavBar = () => {
         </nav>
         <div className={styles["navbar-icons"]}>
           <button>
-            <HiOutlineShoppingBag />
+            <HiOutlineSearch />
           </button>
           <button>
-            <HiOutlineSearch />
+            <HiOutlineShoppingBag />
           </button>
           <Button color={"var(--secondary-color)"}>
             <a href="#reservations">Reserve A Table</a>{" "}

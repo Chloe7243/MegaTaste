@@ -20,27 +20,6 @@
   display: none;
 }
 
-.navbar-logo {
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  height: inherit;
-  max-width: 27rem;
-  flex: 1 1 auto;
-  /* background: #000; */
-}
-
-.navbar-logo > img {
-  width: 8rem;
-}
-
-.navbar-logo > .bar {
-  background-color: var(--primary-color);
-  width: 0.2rem;
-  height: 100%;
-}
-
 .navbar-links {
   flex: 1 1 auto;
   max-width: 75rem;
@@ -70,6 +49,11 @@
   justify-content: space-evenly;
   /* background: #000; */
 }
+
+.navbar-icons{
+  transform: translateX(12%);
+}
+
 .navbar-icons > button {
   border: none;
   font-size: 3rem;
@@ -94,7 +78,7 @@
   justify-content: end;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   font-size: 3rem;
   min-width: 30%;
 }

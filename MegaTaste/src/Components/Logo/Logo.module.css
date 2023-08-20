@@ -1,0 +1,19 @@
+.app-logo {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: inherit;
+  max-width: 27rem;
+  flex: 1 1 auto;
+}
+
+.app-logo > img {
+  height: 100%;
+  width: 8rem;
+}
+
+.app-logo > .bar {
+  width: 0.2rem;
+  height: 100%;
+}

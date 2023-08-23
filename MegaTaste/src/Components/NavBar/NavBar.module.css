@@ -5,14 +5,14 @@
   width: 100%;
   height: 6rem;
   z-index: 5;
+  padding: 4rem 0;
 }
-
 
 .navbar__container {
   z-index: 5;
   background: var(--light-color);
   position: sticky;
-  top: 0;
+  top: -.5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 

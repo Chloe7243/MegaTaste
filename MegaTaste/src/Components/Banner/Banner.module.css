@@ -1,0 +1,61 @@
+.banner__container {
+  background: #f5f8fd url(../../assets/footer.png) no-repeat bottom;
+  background-size: 120%;
+  height: 37rem;
+  padding: 0;
+  padding-top: 0.5rem;
+}
+
+.banner__container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner__container > div h2 {
+  font-weight: 600;
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  /* word-spacing: 2rem; */
+  color: white;
+  /* width: 30rem; */
+  min-width: 30rem;
+  padding: 1.7rem 3.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  background-color: var(--secondary-color);
+}
+
+.breadcrumb span {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.banner-images {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-end;
+  /* background: #000; */
+  height: 100%;
+}
+
+.banner-images :first-child {
+  /* width: 12rem; */
+  align-self: flex-start;
+}
+
+.banner-images img {
+  width: 17rem;
+  height: 27rem;
+  border-radius: 11rem;
+  align-self: flex-end;
+  /* display: block; */
+}

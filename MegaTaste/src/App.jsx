@@ -8,15 +8,19 @@ import SignUp from "./Components/Forms/SignUp";
 import AllCategories from "./Components/AllCategoriesPage/AllCategories";
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import HomePage from "./Components/HomePage/HomePage";
-
+import Contact from "./Components/ContactPage/Contact";
+// 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
+      { path: `/`, element: <HomePage /> },
       { path: `/login/`, element: <Login /> },
       { path: `/sign_up/`, element: <SignUp /> },
+      { path: `/CategoryPage/`, element: <SignUp /> },
       { path: `/categories/`, element: <AllCategories /> },
+      { path: `/contact/`, element: <Contact /> },
     ],
   },
   // { path: `/categories/${categoryName}`, element: <HomePage/>},

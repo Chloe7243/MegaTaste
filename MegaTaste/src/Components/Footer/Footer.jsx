@@ -1,9 +1,8 @@
 import Logo from "../Logo/Logo";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
-import { Link } from "react-router-dom";
 import Container from "../UI/Container/Container";
-import { PiCaretRightThin } from "react-icons/pi";
+import FooterLink from "../UI/FooterLink/FooterLink";
 
 import styles from "./Footer.module.css";
 import visa from "../../assets/visa.svg";
@@ -37,44 +36,22 @@ const Footer = () => {
             <div>
               <h2>About</h2>
               <ul>
-                <li>
-                  <Link>Our Specials</Link>
-                </li>
-                <li>
-                  <Link>Contact</Link>
-                </li>
-                <li>
-                  <Link>About</Link>
-                </li>
-                <li>
-                  <Link>FAQs</Link>
-                </li>
+                <FooterLink>Our Specials</FooterLink>
+                <FooterLink>Contact</FooterLink>
+                <FooterLink>About</FooterLink>
+                <FooterLink>FAQs</FooterLink>
               </ul>
             </div>
             <div>
               <h2>Menu</h2>
               <ul>
-                <li>
-                  <Link>Burger</Link>
-                </li>
-                <li>
-                  <Link>Cocktails</Link>
-                </li>
-                <li>
-                  <Link>Bar & BBQ</Link>
-                </li>
-                <li>
-                  <Link>Steaks</Link>
-                </li>
-                <li>
-                  <Link>Chicken</Link>
-                </li>
-                <li>
-                  <Link>Desserts</Link>
-                </li>
-                <li>
-                  <Link>Reserve a Table</Link>
-                </li>
+                <FooterLink>Burger</FooterLink>
+                <FooterLink>Cocktails</FooterLink>
+                <FooterLink>Bar & BBQ</FooterLink>
+                <FooterLink>Steaks</FooterLink>
+                <FooterLink>Chicken</FooterLink>
+                <FooterLink>Desserts</FooterLink>
+                <FooterLink>Reserve a Table</FooterLink>
               </ul>
             </div>
             <div>

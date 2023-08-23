@@ -1,0 +1,24 @@
+.quantity {
+  font-weight: 500;
+  font-size: 2rem;
+  justify-content: space-evenly;
+  display: flex;
+  width: 70%;
+  border: 1px solid;
+  height: 4.5rem;
+  /* padding: 0.7rem 0; */
+  align-items: last baseline;
+  padding-bottom: .5rem;
+  max-width: 17rem;
+}
+
+.quantity button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+  font-size: 3rem;
+  width: 30%;
+  height: 100%;
+  cursor: pointer;
+}

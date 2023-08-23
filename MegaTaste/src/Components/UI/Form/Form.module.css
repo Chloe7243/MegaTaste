@@ -1,4 +1,4 @@
-form {
+.form {
   display: flex;
   flex-direction: column;
   background: url("../../../assets/patron.jpg");
@@ -13,13 +13,13 @@ form {
   margin: auto;
 }
 
-form > div {
+.form > div {
   position: relative;
   margin: auto;
   width: 100%;
 }
 
-form > div > input {
+.form > div > input {
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -28,7 +28,7 @@ form > div > input {
   font-size: 2.2rem;
 }
 
-form > div > p {
+.form > div > p {
   font-size: 1.5rem;
   margin-left: 1.5rem;
   margin-top: 0.5rem;
@@ -36,7 +36,7 @@ form > div > p {
   font-weight: 500;
 }
 
-form > div:has(p) > label {
+.form > div:has(p) > label {
   transform: translateY(-100%);
 }
 
@@ -52,12 +52,12 @@ input:not(:placeholder-shown) ~ label {
   color: #555;
 }
 
-form > div:has(p) > input:focus ~ label,
-form > div:has(p) > input:not(:placeholder-shown) ~ label {
+.form > div:has(p) > input:focus ~ label,
+.form > div:has(p) > input:not(:placeholder-shown) ~ label {
   transform: translateY(-220%);
 }
 
-form > div > label {
+.form > div > label {
   position: absolute;
   top: 50%;
   left: 2rem;
@@ -68,7 +68,7 @@ form > div > label {
     font-size 200ms ease-in;
 }
 
-form button {
+.form button {
   font-weight: 500;
   font-size: 2rem;
   background-color: var(--primary-color);

@@ -30,8 +30,8 @@ input:not(:placeholder-shown) ~ label {
 label {
   color: #555;
   font-weight: 600;
-  letter-spacing: 0.1rem;
   position: absolute;
+  letter-spacing: 0.1rem;
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);

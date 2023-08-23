@@ -20,7 +20,6 @@
 }
 
 .details > span > span{
-  /* background: #000; */
   display: flex;
   justify-content: space-between;
   color: black;
@@ -33,25 +32,9 @@
   justify-content: space-between;
 }
 
-.details button {
-  border: none;
-  background: none;
-  font-weight: inherit;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.details > span:last-child > span {
-  font-weight: 100;
-  font-size: 1.8rem;
-  justify-content: space-evenly;
-  display: flex;
-  align-items: flex-start;
-  width: 70%;
-  border: 1px solid;
-}
-
 .details > span:last-child > button {
+  cursor: pointer;
+  font-size: 2rem;
   color: white;
   background: var(--secondary-color);
   padding: 0.5rem 1rem;

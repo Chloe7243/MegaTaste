@@ -10,7 +10,8 @@ import vid from "../../assets/mov_bbb.mp4";
 import step1 from "../../assets/step1.png";
 import step2 from "../../assets/step2.png";
 import step3 from "../../assets/step3.webp";
-import styles from "./AllCategories.module.css";
+import arrow from "../../assets/arrow.avif";
+import styles from "./MenuPage.module.css";
 import burger from "../../assets/fastfood-1.webp";
 
 const AllCategories = () => {
@@ -22,7 +23,7 @@ const AllCategories = () => {
   }, [playVideo]);
   return (
     <>
-      <Banner pageName={"Categories"} />
+      <Banner pageName={"Menu"} />
       <Container className={styles.categories__container}>
         <h1>Choose a Category</h1>
         <div className={styles["all-categories"]}>
@@ -123,6 +124,7 @@ const AllCategories = () => {
               <button onClick={() => setPlayVideo(true)}>
                 <FaPlay />
               </button>
+              <img src={arrow} alt="" />
             </div>
           )}
         </Container>

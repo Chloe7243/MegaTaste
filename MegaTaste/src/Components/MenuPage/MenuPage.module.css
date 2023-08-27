@@ -167,6 +167,14 @@ article:nth-child(3) .step img {
   top: 10%;
 }
 
+article:nth-child(2) .step::before{
+  content: "2";
+}
+
+article:nth-child(3) .step::before{
+  content: "3";
+}
+
 .video {
   /* position: absolute; */
   display: flex;
@@ -175,6 +183,23 @@ article:nth-child(3) .step img {
   min-width: 50rem;
   min-height: 50rem;
   border-radius: 50%;
+  position: relative;
+}
+
+.video img{
+  position: absolute;
+  top: 20%;
+  left: -35%;
+  scale: 1.2;
+
+}
+
+.video::before{
+  content: "Watch and Follow";
+  position: absolute;
+  top: 10%;
+  left: -50%;
+  font-weight: 500;
 }
 
 video {

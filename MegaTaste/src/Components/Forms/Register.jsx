@@ -1,38 +1,37 @@
 import Form from "../UI/Form/Form";
 import Button from "../UI/Button/Button";
-import Banner from "../Banner/Banner";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Banner from "../Banner/Banner";
 
-const Login = () => {
-  const [user, setUser] = useState("");
+const Register = () => {
   const [disabled, setDisabled] = useState(true);
   const [inputValues, setInputValues] = useState({});
   const [inputsValidity, setInputsValidity] = useState({});
-  const [incorrectPassword, setIncorrectPassword] = useState(null);
 
   useEffect(() => {
     setDisabled(
       !(
         inputValues?.email &&
         inputsValidity?.email &&
+        inputValues?.firstname &&
+        inputValues?.lastname &&
         inputValues?.password &&
         inputsValidity?.password
       )
     );
-    setUser("");
-    setIncorrectPassword(null);
   }, [inputValues, inputsValidity]);
 
   const checkValidity = (value, type) => {
     if (type === "email" && value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/))
       return true;
     else if (type === "password" && value.length > 7) return true;
+    else if (type === "firstname" || type === "lastname") return true;
     return false;
   };
 
   const inputFormHandler = (event) => {
     const validInput = checkValidity(event.target.value, event.target.name);
+
     setInputsValidity((prevState) => {
       return {
         ...prevState,
@@ -51,14 +50,49 @@ const Login = () => {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    // useNavigate("/")
+    const response = await fetch(
+      "https://megataste-a6d27-default-rtdb.firebaseio.com/users.json",
+      {
+        method: "POST",
+        body: JSON.stringify(inputValues),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    setInputValues({});
+    event.target.reset();
   };
 
   return (
     <>
-      <Banner pageName="Login" />
-      <Form onSubmit={formSubmitHandler} key={1} style={{ padding: "10rem 0" }}>
-        <h2>Login</h2>
+      <Banner pageName="Create account" />
+      <Form onSubmit={formSubmitHandler} key={0} style={{ margin: "7rem 0" }}>
+        <h2>Create account</h2>
+        <div>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder=" "
+            onChange={inputFormHandler}
+            autoComplete="off"
+          />
+          <label htmlFor="firstname">First name</label>
+        </div>
+        <div>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder=" "
+            onChange={inputFormHandler}
+            autoComplete="off"
+          />
+          <label htmlFor="lastname">Last name</label>
+        </div>
         <div>
           <input
             type="email"
@@ -69,12 +103,9 @@ const Login = () => {
             autoComplete="off"
           />
           <label htmlFor="email">Email</label>
-          {inputsValidity.email === false && (
+          {inputsValidity?.email === false && (
             <p>Email must include '@' and a valid domain after the '@'</p>
           )}
-          {inputValues?.email &&
-            user === null &&
-            incorrectPassword != false && <p>Invalid Email Adress</p>}
         </div>
         <div>
           <input
@@ -89,16 +120,14 @@ const Login = () => {
           {inputsValidity?.password === false && (
             <p>Password must contain at least 8 characters</p>
           )}
-          {incorrectPassword === false && <p>Incorrect Password</p>}
         </div>
-        <a href="">Forgot Your Password</a>
         <Button disabled={disabled} color={"var(--primary-color)"}>
-          Login
+          Create
         </Button>
-        <a href="">Create Your Account</a>
+        <a href="">Login</a>
       </Form>
     </>
   );
 };
 
-export default Login;
+export default Register;

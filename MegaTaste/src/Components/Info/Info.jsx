@@ -24,7 +24,7 @@ const Info = () => {
       <div className={styles["info__account"]}>
         <PiUserCirclePlusLight />
         <span>
-          <Link to="/login">Login</Link>/<Link to="/register">Register</Link>
+          <Link to="login">Login</Link>/<Link to="register">Register</Link>
         </span>
       </div>
     </Container>

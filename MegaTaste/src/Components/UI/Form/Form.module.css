@@ -3,7 +3,6 @@
   flex-direction: column;
   background: url("../../../assets/patron.jpg");
   height: max-content;
-  /* min-height: 50rem; */
   width: 55rem;
   padding: 3.5rem;
   border-radius: 2.5rem;
@@ -47,14 +46,14 @@ input:focus {
 
 input:focus ~ label,
 input:not(:placeholder-shown) ~ label {
-  transform: translateY(-150%);
+  transform: translateY(-150%) !important;
   font-size: 1.2rem;
   color: #555;
 }
 
 .form > div:has(p) > input:focus ~ label,
 .form > div:has(p) > input:not(:placeholder-shown) ~ label {
-  transform: translateY(-220%);
+  transform: translateY(-220%) !important;
 }
 
 .form > div > label {
@@ -72,4 +71,19 @@ input:not(:placeholder-shown) ~ label {
   font-weight: 500;
   font-size: 2rem;
   background-color: var(--primary-color);
+}
+
+
+.form a{
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form a:last-of-type{
+  text-align: center;
+}
+
+.form a:hover{
+  text-decoration: underline;
 }

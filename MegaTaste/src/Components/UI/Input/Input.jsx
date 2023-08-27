@@ -2,7 +2,7 @@ import styles from "./Input.module.css";
 
 const Input = ({ type, label, children }) => {
   return (
-    <div>
+    <div className={styles.input}>
       <input type={type} placeholder=" " />
       <label htmlFor="">{label}</label>
       {children}

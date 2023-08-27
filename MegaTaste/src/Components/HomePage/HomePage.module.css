@@ -1,0 +1,216 @@
+.carousel__container {
+  position: relative;
+  height: 80rem;
+}
+
+.button {
+  position: absolute;
+  top: 60%;
+  left: 16%;
+  width: 40%;
+  /* background: red; */
+}
+
+.button > div {
+  z-index: 2;
+  /* width: 70rem; */
+}
+
+.button button,
+.button a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+
+.carousel {
+  color: white;
+  margin-bottom: 3rem;
+  position: relative;
+  height: 100%;
+}
+
+.carousel div {
+  height: inherit;
+}
+
+.hero_1 {
+  background: url(../../assets/hero-1.jpg) no-repeat;
+}
+.hero_2 {
+  background: url(../../assets/hero-2.jpg) no-repeat;
+}
+.hero_3 {
+  background: url(../../assets/hero-3.jpg) no-repeat;
+}
+.hero_4 {
+  background: url(../../assets/carousel-bg.jpeg) no-repeat;
+}
+.hero_4 > div{
+  height: 100%;
+  /* background-color: aqua; */
+  background: url(../../assets/hero-5.webp) no-repeat top;
+  background-size: cover;
+}
+.hero_5 {
+  background: url(../../assets/hero-4.jpg) no-repeat;
+}
+
+.hero {
+  background-size: cover;
+  height: 100%;
+}
+
+.carousel .hero > div > div {
+  top: 30%;
+  transform: translateY(-30%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 6rem;
+  height: max-content;
+  text-transform: capitalize;
+}
+
+.carousel .hero_1 > div > div {
+  gap: 1rem;
+}
+
+.hero_1 p {
+  font-weight: 600;
+  font-size: 2rem !important;
+  letter-spacing: .2rem;
+}
+
+.carousel .hero h2 {
+  font-size: 5rem;
+  line-height: 9rem;
+  max-width: 40%;
+}
+
+.carousel .hero p {
+  max-width: 40%;
+  font-weight: 400;
+  letter-spacing: .1rem;
+}
+
+.carousel .hero h2 span {
+  color: var(--primary-color);
+  font-size: 12rem;
+  display: block;
+}
+
+.carousel .hero p {
+  font-size: 2.5rem;
+}
+
+.carousel > .slide > div {
+}
+
+.carousel-dots {
+  display: flex !important;
+  /* flex-direction: row; */
+  gap: 0.7rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  justify-content: space-evenly;
+  transform: translateX(-50%);
+  list-style: none;
+  /* color: white; */
+  width: 10rem !important;
+  height: 7rem;
+  display: flex;
+  align-items: top;
+  z-index: 2;
+}
+
+.carousel-dots > li {
+  height: 1.7rem;
+  flex: 0 0 17%;
+  border-radius: 50%;
+}
+
+.carousel-dots > li > button {
+  background: white;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-indent: -1000rem;
+}
+
+.carousel-dots > li:global(.slick-active) > button {
+  background: var(--primary-color) !important;
+  scale: 1.3 !important;
+}
+
+.carousel-dots > li:global(:not(.slick-active)) > button:hover {
+  scale: 1.1;
+  background: none;
+  border: 0.5rem solid white;
+  color: inherit;
+}
+
+.carousel-dots > li:global(:not(.slick-active)) > button:hover:before {
+  content: "";
+  position: absolute;
+  display: flex;
+  width: 40%;
+  height: 40%;
+  background: transparent;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+.carousel :global(.slick-prev),
+.carousel :global(.slick-next) {
+  z-index: 1;
+  scale: 5 !important;
+  top: 55%;
+}
+
+.carousel :global(.slick-prev) {
+  left: 3% !important;
+}
+
+.carousel :global(.slick-next) {
+  right: 3% !important;
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.1%;
+  color: white;
+  font-size: 6rem;
+}
+
+.controls span {
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.carousel__container:has(:global(.slick-prev:hover))
+  .controls
+  span:first-child {
+  color: var(--primary-color);
+  scale: 1.1;
+}
+
+.carousel__container:has(:global(.slick-next:hover)) .controls span:last-child {
+  color: var(--primary-color);
+  scale: 1.1;
+}

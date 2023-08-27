@@ -12,7 +12,9 @@ const RootLayout = () => {
       <Info />
       {/* <SearchBar /> */}
       <NavBar />
+      <main>
       <Outlet />
+      </main>
       <Footer />
     </>
   );

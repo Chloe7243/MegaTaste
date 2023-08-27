@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag, HiOutlineSearch } from "react-icons/hi";
 
 import styles from "./NavBar.module.css";
-import Logo from "../Logo/Logo" 
+import Logo from "../Logo/Logo";
 import logo from "../../assets/logo.png";
 import Button from "../UI/Button/Button";
 import logoName from "../../assets/logo_name.png";
@@ -15,11 +15,36 @@ const NavBar = () => {
         <div className={styles["navbar__mobile"]}></div>
         <Logo logo={logo} logoName={logoName} color="var(--primary-color)" />
         <nav className={styles["navbar-links"]}>
-          <Link to={"/"}>Home</Link>
-          <Link to={"/categories"}>Menus</Link>
-          <Link to={"/about"}>About</Link>
-          <Link to={"/news"}>News</Link>
-          <Link to={"/contact"}>Contact</Link>
+          <NavLink
+            to=""
+            className={({ isActive }) => isActive && styles.active}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="menu"
+            className={({ isActive }) => isActive && styles.active}
+          >
+            Menus
+          </NavLink>
+          <NavLink
+            to="about"
+            className={({ isActive }) => isActive && styles.active}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="news"
+            className={({ isActive }) => isActive && styles.active}
+          >
+            News
+          </NavLink>
+          <NavLink
+            to="contact"
+            className={({ isActive }) => isActive && styles.active}
+          >
+            Contact
+          </NavLink>
         </nav>
         <div className={styles["navbar-icons"]}>
           <button>

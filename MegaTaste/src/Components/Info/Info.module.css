@@ -1,9 +1,9 @@
 .info {
   background-color: var(--secondary-color);
-  padding: 1rem 0;
-  font-size: 1.6rem;
-  font-weight: 550;
-  letter-spacing: .1rem;
+  padding: 1.3rem 0;
+  font-size: 1.8rem;
+  font-weight: 530;
+  letter-spacing: .15rem;
 }
 
 .info > div {

@@ -6,24 +6,27 @@ import bannerImage2 from "../../assets/banner2.png";
 
 import Container from "../UI/Container/Container";
 
-const Banner = ({ pageName }) => {
+const Banner = ({ pageName, children }) => {
   return (
-    <Container className={styles.banner__container}>
-      <div>
-        <h2>{pageName}</h2>
-        <div className={styles.breadcrumb}>
-          <span>
-            <AiFillHome /> 
-            Home
-          </span>
-          - <span>{pageName}</span>
+    <>
+      <Container className={styles.banner__container}>
+        <div>
+          <h2>{pageName}</h2>
+          <div className={styles.breadcrumb}>
+            <span>
+              <AiFillHome />
+              Home
+            </span>
+            - <span>{pageName}</span>
+          </div>
         </div>
-      </div>
-      <div className={styles["banner-images"]}>
-        <img src={bannerImage1} alt="" />
-        <img src={bannerImage2} alt="" />
-      </div>
-    </Container>
+        <div className={styles["banner-images"]}>
+          <img src={bannerImage1} alt="" />
+          <img src={bannerImage2} alt="" />
+        </div>
+      </Container>
+      {children}
+    </>
   );
 };
 

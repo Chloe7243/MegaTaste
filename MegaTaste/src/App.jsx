@@ -1,26 +1,33 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
-import RootLayout from "./Components/RootLayout/RootLayout";
-import Login from "./Components/Forms/Login";
-import SignUp from "./Components/Forms/SignUp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AllCategories from "./Components/AllCategoriesPage/AllCategories";
+import Login from "./Components/Forms/Login";
+import RootLayout from "./Components/RootLayout/RootLayout";
+import Register from "./Components/Forms/Register";
+
+import MenuPage from "./Components/MenuPage/MenuPage";
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import HomePage from "./Components/HomePage/HomePage";
 import Contact from "./Components/ContactPage/Contact";
-// 
+import ProductDetails from "./Components/ProductDetailsPage/ProductDetails";
+//
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    // errorElement: <ErrorPage/>,
     children: [
-      { path: `/`, element: <HomePage /> },
-      { path: `/login/`, element: <Login /> },
-      { path: `/sign_up/`, element: <SignUp /> },
-      { path: `/CategoryPage/`, element: <SignUp /> },
-      { path: `/categories/`, element: <AllCategories /> },
-      { path: `/contact/`, element: <Contact /> },
+      { path: ``, element: <HomePage /> },
+      { path: `login`, element: <Login /> },
+      { path: `register`, element: <Register /> },
+      { path: `menu`, element: <MenuPage /> },
+      {
+        path: `/menu/:categoryName`,
+        element: <MenuPage />,
+        children: [{ path: `:catagoryId`, element: <ProductDetails /> }],
+      },
+      { path: `contact`, element: <Contact /> },
     ],
   },
   // { path: `/categories/${categoryName}`, element: <HomePage/>},

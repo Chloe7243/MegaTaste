@@ -1,18 +1,54 @@
 import { FaPlay } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-import Banner from "../Banner/Banner";
-import Button from "../UI/Button/Button";
-import Quantity from "../Quantity/Quantity";
-import Container from "../UI/Container/Container";
+import Banner from "../../Banner/Banner";
+import Button from "../../UI/Button/Button";
+import Quantity from "../../Quantity/Quantity";
+import Container from "../../UI/Container/Container";
 
-import vid from "../../assets/mov_bbb.mp4";
-import step1 from "../../assets/step1.png";
-import step2 from "../../assets/step2.png";
-import step3 from "../../assets/step3.webp";
-import arrow from "../../assets/arrow.avif";
+import vid from "../../../assets/mov_bbb.mp4";
+import step1 from "../../../assets/step1.png";
+import step2 from "../../../assets/step2.png";
+import step3 from "../../../assets/step3.webp";
+import arrow from "../../../assets/arrow.avif";
 import styles from "./MenuPage.module.css";
-import burger from "../../assets/fastfood-1.webp";
+import burger from "../../../assets/fastfood-1.webp";
+import Category from "../../Category/Category";
+
+const categories = [
+  {
+    name: "Burger",
+    img: "https://home-market-4.myshopify.com/cdn/shop/products/fastfood-1.png",
+  },
+  {
+    name: "Pizza",
+    img: "https://home-market-4.myshopify.com/cdn/shop/products/pizza-3.png",
+  },
+  {
+    name: "Desserts",
+    img: "https://s1.1zoom.me/big0/964/Sweets_Cake_Chocolate_White_background_Design_563125_1280x870.jpg",
+  },
+  {
+    name: "Cocktails and Drinks",
+    img: "https://img.freepik.com/free-vector/cocktail-glass-white-background_1308-112632.jpg",
+  },
+  {
+    name: "Chicken",
+    img: "https://home-market-4.myshopify.com/cdn/shop/products/chiken-4.png",
+  },
+  {
+    name: "Soup",
+    img: "https://www.corriecooks.com/wp-content/uploads/2018/09/vegetable-noodle-soup.jpg",
+  },
+  {
+    name: "Salad",
+    img: "https://static.vecteezy.com/system/resources/previews/021/818/869/large_2x/flying-vegetable-greek-salad-isolated-on-white-background-photo.jpg",
+  },
+  {
+    name: "Pasta",
+    img: "https://img.freepik.com/premium-photo/spaghetti-with-bolognese-sauce-basil-white-background_375133-1674.jpg?w=2000",
+  },
+];
 
 const AllCategories = () => {
   const [playVideo, setPlayVideo] = useState(false);
@@ -27,11 +63,9 @@ const AllCategories = () => {
       <Container className={styles.categories__container}>
         <h1>Choose a Category</h1>
         <div className={styles["all-categories"]}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          {categories.map((category) => (
+            <Category img={category.img} name={category.name} />
+          ))}
           <div className={styles.openings}>
             <h3>Opening Times</h3>
             <table>
@@ -68,7 +102,6 @@ const AllCategories = () => {
               <p>No 96, 3rd Avenue, Gwarimpa Abuja</p>
             </span>
           </div>
-          <div></div>
         </div>
       </Container>
       <div className={styles.test}>
@@ -172,7 +205,7 @@ const AllCategories = () => {
             </div>
             <div>
               <p>Quantity</p>
-            <Quantity/>
+              <Quantity />
             </div>
             <Button color="var(--secondary-color)">Add To Cart</Button>
           </div>

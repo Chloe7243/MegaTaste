@@ -2,6 +2,7 @@ import Form from "../UI/Form/Form";
 import Button from "../UI/Button/Button";
 import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [disabled, setDisabled] = useState(true);
@@ -124,7 +125,7 @@ const Register = () => {
         <Button disabled={disabled} color={"var(--primary-color)"}>
           Create
         </Button>
-        <a href="">Login</a>
+        <Link to="/login">Login</Link>
       </Form>
     </>
   );

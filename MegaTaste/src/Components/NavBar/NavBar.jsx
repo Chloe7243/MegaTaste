@@ -33,12 +33,12 @@ const NavBar = () => {
           >
             About
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="news"
             className={({ isActive }) => isActive && styles.active}
           >
             News
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="contact"
             className={({ isActive }) => isActive && styles.active}
@@ -54,7 +54,7 @@ const NavBar = () => {
             <HiOutlineShoppingBag />
           </button>
           <Button color={"var(--secondary-color)"}>
-            <a href="#reservations">Reserve A Table</a>{" "}
+            <Link to="/#reservations">Reserve A Table</Link>
           </Button>
         </div>
       </header>

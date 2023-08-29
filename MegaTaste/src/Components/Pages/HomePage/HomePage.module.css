@@ -36,25 +36,25 @@
 }
 
 .hero_1 {
-  background: url(../../assets/hero-1.jpg) no-repeat;
+  background: url(../../../assets/hero-1.jpg) no-repeat;
 }
 .hero_2 {
-  background: url(../../assets/hero-2.jpg) no-repeat;
+  background: url(../../../assets/hero-2.jpg) no-repeat;
 }
 .hero_3 {
-  background: url(../../assets/hero-3.jpg) no-repeat;
+  background: url(../../../assets/hero-3.jpg) no-repeat;
 }
 .hero_4 {
-  background: url(../../assets/carousel-bg.jpeg) no-repeat;
+  background: url(../../../assets/carousel-bg.jpeg) no-repeat;
 }
-.hero_4 > div{
+.hero_4 > div {
   height: 100%;
   /* background-color: aqua; */
-  background: url(../../assets/hero-5.webp) no-repeat top;
+  background: url(../../../assets/hero-5.webp) no-repeat top;
   background-size: cover;
 }
 .hero_5 {
-  background: url(../../assets/hero-4.jpg) no-repeat;
+  background: url(../../../assets/hero-4.jpg) no-repeat;
 }
 
 .hero {
@@ -80,7 +80,7 @@
 .hero_1 p {
   font-weight: 600;
   font-size: 2rem !important;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 }
 
 .carousel .hero h2 {
@@ -92,7 +92,7 @@
 .carousel .hero p {
   max-width: 40%;
   font-weight: 400;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
 .carousel .hero h2 span {
@@ -103,9 +103,6 @@
 
 .carousel .hero p {
   font-size: 2.5rem;
-}
-
-.carousel > .slide > div {
 }
 
 .carousel-dots {
@@ -213,4 +210,164 @@
 .carousel__container:has(:global(.slick-next:hover)) .controls span:last-child {
   color: var(--primary-color);
   scale: 1.1;
+}
+
+.welcome__container {
+  padding: 10rem 0 5rem;
+}
+
+.welcome__container > div {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  gap: 3rem;
+  /* align-items: center; */
+}
+
+.welcome__container h2 {
+  font-size: 8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.welcome__container h3 {
+  color: var(--secondary-color);
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+}
+
+.welcome__container > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.welcome__container > div > div > img {
+  width: 40rem;
+  border-radius: 4rem;
+}
+
+.c-text {
+  position: relative;
+  border-radius: 50%;
+  width: 30rem;
+  height: 30rem;
+}
+
+.c-text img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 3rem;
+  width: inherit;
+  height: inherit;
+}
+
+.c-text img:first-of-type {
+  padding: 0;
+  z-index: 2;
+  animation: rotate 20s infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.benefits__container {
+  padding: 10rem 0;
+}
+
+.benefits__container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+
+.benefits__container h2 {
+  font-size: 6rem;
+}
+
+.benefits__container img {
+  width: 60rem;
+}
+
+.benefits__container ul {
+  width: 40rem;
+  color: #555;
+  font-size: 2.3rem;
+  font-weight: 600;
+  list-style-image: url("../../../assets/check.png");
+  list-style-position: inside;
+  margin-bottom: 3rem;
+}
+
+.benefits__container div > button,
+button a {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reservations__container {
+  background: url(../../../assets/private-dining.png) no-repeat bottom;
+  background-size: cover;
+  padding: 10rem 0;
+}
+
+.reservations__container > div {
+  display: flex;
+  gap: 5rem;
+  background: url(../../../assets/patron.jpg);
+  padding: 10rem;
+  border-radius: 2rem;
+}
+
+.reservations__container h2 {
+  color: white;
+  border-bottom: 0.5rem solid var(--primary-color);
+  height: max-content;
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+
+.reservations__container form {
+  background: none;
+  padding: 0;
+  width: 100%;
+}
+
+.reservations__container input,
+.reservations__container select,
+.reservations__container label {
+  border-radius: 1.5rem;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.9rem;
+  border: none;
+  outline: none;
+}
+
+.reservations__container form div:has(input, select) {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+form div:has(button){
+  transform: translateX(125%);
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
 }

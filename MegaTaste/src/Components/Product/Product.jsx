@@ -1,22 +1,21 @@
+import { Link } from "react-router-dom";
 import styles from "./Product.module.css";
+import { BiShoppingBag } from "react-icons/bi";
 
 const Product = ({ product }) => {
+  const openModalDetails = () => {
+    
+  }
   return (
-    <div className={styles.product}>
-      <img
-        src={product["images"][0].sm}
-        alt=""
-        className={styles["product-image"]}
-      />
+    <Link to={product.id} className={styles.product}>
+      <img src={product.image} alt="Soup" className={styles["product-image"]} />
       <div className={styles["product-details"]}>
-        <p>
-          {product.name}
-          <br />
-          {"\u20A6 " + Math.round(product.price * 950)}
-        </p>
-        <button>Shop</button>
+        <p>{product.title}</p>
+        <button onClick={openModalDetails}>
+          <BiShoppingBag />
+        </button>
       </div>
-    </div>
+    </Link>
   );
 };
 

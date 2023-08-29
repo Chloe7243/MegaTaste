@@ -1,10 +1,10 @@
 import { IoLocationSharp } from "react-icons/io5";
 import { LuMailOpen, LuSmartphone } from "react-icons/lu";
 
-import Banner from "../Banner/Banner";
-import Container from "../UI/Container/Container";
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
+import Banner from "../../Banner/Banner";
+import Container from "../../UI/Container/Container";
+import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
 import styles from "./Contact.module.css";
 
 const Contact = () => {

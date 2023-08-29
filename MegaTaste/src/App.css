@@ -63,3 +63,8 @@ button {
     transparent
   );
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const FooterLink = ({ type, children }) => {
+const FooterLink = ({ type, children, to }) => {
   return (
     <li>
-      <Link>{children}</Link>
+      <Link to={to}>{children}</Link>
     </li>
   );
 };

@@ -1,7 +1,7 @@
 .banner__container {
-  background: #f5f8fd url(../../assets/footer.png) no-repeat bottom;
-  background-size: 120%;
-  height: 37rem;
+  background: #f5f8fd url(../../assets/banner_bg.jpeg) no-repeat;
+  background-size: cover;
+  height: 45rem;
   padding: 0;
   padding-top: 0.5rem;
 }
@@ -16,6 +16,11 @@
   font-weight: 600;
   font-size: 6rem;
   margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.banner__container h2::after{
+  content: none !important;
 }
 
 .breadcrumb {
@@ -23,8 +28,9 @@
   justify-content: space-between;
   text-align: center;
   /* word-spacing: 2rem; */
+  text-transform: capitalize;
   color: white;
-  /* width: 30rem; */
+  max-width: 40rem;
   min-width: 30rem;
   padding: 1.7rem 3.5rem;
   font-size: 2rem;
@@ -39,23 +45,3 @@
   gap: .5rem;
 }
 
-.banner-images {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-end;
-  /* background: #000; */
-  height: 100%;
-}
-
-.banner-images :first-child {
-  /* width: 12rem; */
-  align-self: flex-start;
-}
-
-.banner-images img {
-  width: 17rem;
-  height: 27rem;
-  border-radius: 11rem;
-  align-self: flex-end;
-  /* display: block; */
-}

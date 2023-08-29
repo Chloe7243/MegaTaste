@@ -1,5 +1,5 @@
-import Banner from "../Banner/Banner"
-import Container from "../UI/Container/Container"
+import Banner from "../../Banner/Banner"
+import Container from "../../UI/Container/Container"
 
 const ProductDetails = () => {
     return <>

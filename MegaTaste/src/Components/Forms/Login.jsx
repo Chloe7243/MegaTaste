@@ -2,7 +2,7 @@ import Form from "../UI/Form/Form";
 import Button from "../UI/Button/Button";
 import Banner from "../Banner/Banner";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState("");
@@ -91,11 +91,13 @@ const Login = () => {
           )}
           {incorrectPassword === false && <p>Incorrect Password</p>}
         </div>
-        <a href="">Forgot Your Password</a>
+        <div>
+          <a href="">Forgot Your Password ?</a>
+        </div> 
         <Button disabled={disabled} color={"var(--primary-color)"}>
           Login
         </Button>
-        <a href="">Create Your Account</a>
+        <Link to="/register">Create Your Account</Link>
       </Form>
     </>
   );

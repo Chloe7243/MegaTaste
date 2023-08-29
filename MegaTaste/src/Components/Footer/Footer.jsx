@@ -37,21 +37,21 @@ const Footer = () => {
               <h2>About</h2>
               <ul>
                 <FooterLink>Our Specials</FooterLink>
-                <FooterLink>Contact</FooterLink>
-                <FooterLink>About</FooterLink>
+                <FooterLink to="/contact">Contact</FooterLink>
+                <FooterLink to="/about">About</FooterLink>
                 <FooterLink>FAQs</FooterLink>
               </ul>
             </div>
             <div>
               <h2>Menu</h2>
               <ul>
-                <FooterLink>Burger</FooterLink>
-                <FooterLink>Cocktails</FooterLink>
-                <FooterLink>Bar & BBQ</FooterLink>
-                <FooterLink>Steaks</FooterLink>
-                <FooterLink>Chicken</FooterLink>
-                <FooterLink>Desserts</FooterLink>
-                <FooterLink>Reserve a Table</FooterLink>
+                <FooterLink to="/menu/burgers">Burger</FooterLink>
+                <FooterLink to="/menu/cocktails">Cocktails</FooterLink>
+                <FooterLink to="/menu/bbq">Bar & BBQ</FooterLink>
+                <FooterLink to="/menu/steaks">Steaks</FooterLink>
+                <FooterLink to="/menu/chickens">Chicken</FooterLink>
+                <FooterLink to="/menu/desserts">Desserts</FooterLink>
+                <FooterLink to="/#reservations">Reserve a Table</FooterLink>
               </ul>
             </div>
             <div>

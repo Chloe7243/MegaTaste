@@ -6,6 +6,7 @@ const Quantity = ({ cartQuantity, getQuantity, children }) => {
 
   useEffect(() => {
     getQuantity && getQuantity(quantity);
+    //eslint-disable-next-line
   }, [quantity]);
 
   const changeQuantity = (event) => {

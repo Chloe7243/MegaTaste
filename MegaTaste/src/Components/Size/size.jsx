@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./size.module.css";
 
-const Size = () => {
+const Size = ({ getSize }) => {
   const [active, setActive] = useState(0);
   const makeActive = (event) => {
     const target = event.target.textContent;
     setActive(target === "Large" ? 0 : target === "Medium" ? 1 : 2);
   };
+
+  useEffect(() => {
+    getSize &&
+      getSize(active === 0 ? "Large" : active === 1 ? "Medium" : "Small");
+  }, [active]);
 
   return (
     <div className={styles.size}>

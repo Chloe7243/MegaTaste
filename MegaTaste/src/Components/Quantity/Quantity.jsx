@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import styles from "./Quantity.module.css";
 
-const Quantity = ({ getQuantity, children }) => {
-  const [quantity, setQuantity] = useState(1);
+const Quantity = ({ cartQuantity, getQuantity, children }) => {
+  const [quantity, setQuantity] = useState(cartQuantity);
+
   useEffect(() => {
     getQuantity && getQuantity(quantity);
+    //eslint-disable-next-line
   }, [quantity]);
+
   const changeQuantity = (event) => {
     event.target.className === "add"
       ? setQuantity((prev) => (prev += 1))

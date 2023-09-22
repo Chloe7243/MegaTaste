@@ -1,28 +1,29 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { MdDelete } from "react-icons/md";
 import Quantity from "../Quantity/Quantity";
 import styles from "./CartProduct.module.css";
 
-const CartProduct = ({ img }) => {
-  const [quantity, setQuantity] = useState(1)
+const CartProduct = ({ details }) => {
+  const [quantity, setQuantity] = useState(details.productQuantity);
   const getQuantity = (q) => setQuantity(q);
-  
+
   return (
     <div className={styles["product-details"]}>
-      <img src={img} alt="" />
+      <img src={details.productImage} alt="" />
       <div className={styles.details}>
         <span>
           <span>
-            <p>Item Name</p>
+            <p>{details.productName}</p>
             <p className={styles["total-price"]}>
-              {"\u20A6 " + (quantity * 3500)}
+              {"\u20A6 " + quantity * details.productPrice}
             </p>
           </span>
-          <p>Item Price</p>
-          <p>Item Size</p>
+          <p>{details.productPrice}</p>
+          <p>{details.productSize}</p>
         </span>
         <span className={styles.quantity}>
-          <Quantity getQuantity={getQuantity} />
+          <Quantity quantity={quantity} getQuantity={getQuantity} />
           <button className={styles.delete}>
             <MdDelete />
           </button>

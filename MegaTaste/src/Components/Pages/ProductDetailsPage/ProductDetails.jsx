@@ -10,8 +10,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import styles from "./ProductDetails.module.css";
 import Price from "../../Price/Price";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Product from "../../Product/Product";
+import AppContexts from "../../../contexts/app-contexts";
 
 const ProductDetails = () => {
   const [error, setError] = useState(null);
@@ -19,13 +20,16 @@ const ProductDetails = () => {
   const [productImages, setProductImages] = useState([]);
   const [showText, setShowText] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [detailImg, setDetailImg] = useState(details.image);
+  const [size, getSize] = useState();
+  const [quantity, getQuantity] = useState();
+  const [productDetailsCart, setProductDetailsCart] = useState({});
+
+  const ctx = useContext(AppContexts);
 
   const toggleText = () => {
     setShowText((prev) => !prev);
   };
 
-  const name = useParams().name;
   const id = useParams().id;
 
   useEffect(() => {
@@ -91,11 +95,26 @@ const ProductDetails = () => {
     },
   ];
 
+  const addToCart = () => {
+    setProductDetailsCart({
+      productImage: details.image,
+      productName: details.title,
+      productPrice: details.price,
+      productSize: size,
+      productQuantity: quantity,
+    });
+  };
+
+  useEffect(() => {
+    Object.keys(productDetailsCart).length &&
+      ctx.setCartProducts((prev) => [productDetailsCart, ...prev]);
+  }, [productDetailsCart]);
+
   const settings = {
     customPaging: function (i) {
       return (
         <a>
-          <img src={productImages[i]} alt="" srcset="" />
+          <img src={productImages[i]} alt="" />
         </a>
       );
     },
@@ -118,8 +137,8 @@ const ProductDetails = () => {
                   className={styles["product-images__carousel"]}
                 >
                   {products.length &&
-                    productImages.map((img) => (
-                      <div className={styles["detail-image"]}>
+                    productImages.map((img, i) => (
+                      <div className={styles["detail-image"]} key={img + i}>
                         <img src={img} alt="" />
                       </div>
                     ))}
@@ -128,9 +147,11 @@ const ProductDetails = () => {
               <div className={styles.details}>
                 <h2>{details.title}</h2>
                 <Price price={details.price || 1200} />
-                <Size />
-                <Quantity />
-                <Button color="var(--secondary-color)">Add To Cart</Button>
+                <Size getSize={getSize} />
+                <Quantity getQuantity={getQuantity} />
+                <Button color="var(--secondary-color)" onClick={addToCart}>
+                  Add To Cart
+                </Button>
                 <Button color="black">Buy it now</Button>
                 <p className={styles.tags}>
                   <span>Tags: </span>

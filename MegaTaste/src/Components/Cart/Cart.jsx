@@ -1,7 +1,6 @@
 import styles from "./Cart.module.css";
 import Button from "../UI/Button/Button";
 import { TfiClose } from "react-icons/tfi";
-import burger from "../../assets/fastfood-1.webp";
 import { PiCaretUpLight, PiCaretDownLight } from "react-icons/pi";
 import CartProduct from "../CartProduct/CartProduct";
 import { useState, useContext } from "react";
@@ -10,6 +9,7 @@ import AppContexts from "../../contexts/app-contexts";
 const Cart = () => {
   const ctx = useContext(AppContexts);
   const [displayForm, setDisplayForm] = useState(false);
+  const [subtotal, setSubtotal] = useState(0);
   const toggleForm = () => setDisplayForm((prev) => !prev);
   const closeCart = () => ctx.setCartVisibilityState(false);
   return (
@@ -30,15 +30,16 @@ const Cart = () => {
                   <h4>Total</h4>
                 </header>
                 <div className={styles["cart-body"]}>
-                  <CartProduct img={burger} />
-                  {/* <CartProduct img={burger} /> */}
+                  {ctx.cartProducts.map((productDetails, i) => (
+                    <CartProduct details={productDetails} key={i} />
+                  ))}
                 </div>
               </div>
 
               <footer>
                 <div className={styles.instructions}>
                   <span>
-                    Order special Instructions{" "}
+                    Order special Instructions
                     <button onClick={toggleForm}>
                       {(displayForm && <PiCaretUpLight />) || (
                         <PiCaretDownLight />
@@ -59,7 +60,7 @@ const Cart = () => {
                 <div className={styles.subtotal}>
                   <div>
                     <span>
-                      <p>Subtotal:</p> <p>{"\u20A6 " + 5000}</p>
+                      <p>Subtotal:</p> <p>{"\u20A6 " + subtotal}</p>
                     </span>
                     <p>Taxes and shipping are calulated at checkout</p>
                   </div>

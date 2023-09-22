@@ -11,20 +11,21 @@
   width: 30%;
 }
 
-.details{
+.details {
   width: 100%;
 }
 
-.details > span:first-of-type{
+.details > span:first-of-type {
   color: #555;
   font-weight: 500;
   font-size: 2rem;
 }
 
-.details > span > span{
+.details > span > span {
   display: flex;
   justify-content: space-between;
   color: black;
+  gap: 5rem;
 }
 
 .details > span:last-child {
@@ -45,6 +46,7 @@
 }
 
 .total-price {
+  min-width: 7rem;
   font-size: 2.5rem;
   font-weight: 600;
 }

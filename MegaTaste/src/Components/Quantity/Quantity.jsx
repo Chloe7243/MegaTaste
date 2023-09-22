@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Quantity.module.css";
 
 const Quantity = ({ cartQuantity, getQuantity, children }) => {
-  const [quantity, setQuantity] = useState(cartQuantity);
+  const [quantity, setQuantity] = useState(cartQuantity? Number(cartQuantity) : 1);
 
   useEffect(() => {
     getQuantity && getQuantity(quantity);

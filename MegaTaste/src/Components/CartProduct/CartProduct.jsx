@@ -23,7 +23,7 @@ const CartProduct = ({ details }) => {
           <p>{details.productSize}</p>
         </span>
         <span className={styles.quantity}>
-          <Quantity quantity={quantity} getQuantity={getQuantity} />
+          <Quantity cartQuantity={quantity} getQuantity={getQuantity} />
           <button className={styles.delete}>
             <MdDelete />
           </button>

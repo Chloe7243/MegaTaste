@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiOutlineShoppingBag, HiOutlineSearch } from "react-icons/hi";
 
 import styles from "./NavBar.module.css";
@@ -11,6 +11,7 @@ import { useContext } from "react";
 import AppContexts from "../../contexts/app-contexts";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const ctx = useContext(AppContexts);
   const openCart = () => ctx.setCartVisibilityState(true);
   const openSearchField = () => ctx.setSearchFieldVisibilityState(true);
@@ -39,12 +40,12 @@ const NavBar = () => {
           >
             About
           </NavLink>
-          {/* <NavLink
+          <NavLink
             to="news"
             className={({ isActive }) => isActive && styles.active}
           >
             News
-          </NavLink> */}
+          </NavLink>
           <NavLink
             to="contact"
             className={({ isActive }) => isActive && styles.active}
@@ -59,9 +60,9 @@ const NavBar = () => {
           <button onClick={openCart}>
             <HiOutlineShoppingBag />
           </button>
-          <Button color={"var(--secondary-color)"}>
-            <Link to="/#reservations">Reserve A Table</Link>
-          </Button>
+          <a onClick={() => navigate("/")} href="#reservations" className={styles.reserve}>
+            <Button color={"var(--secondary-color)"}>Reserve A Table</Button>
+          </a>
         </div>
       </header>
     </Container>

@@ -339,6 +339,7 @@
 }
 
 .reservations__container form {
+  scroll-padding-top: 10rem;
   background: none;
   padding: 0;
   width: 100%;

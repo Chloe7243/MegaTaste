@@ -11,8 +11,10 @@ import paypal from "../../assets/paypal.svg";
 import logo from "../../assets/logo__white.png";
 import mastercard from "../../assets/mastercard.svg";
 import logoName from "../../assets/logo_name__white.png";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <Container className={styles.footer__container}>
       <footer>
@@ -51,7 +53,9 @@ const Footer = () => {
                 <FooterLink to="/menu/steaks">Steaks</FooterLink>
                 <FooterLink to="/menu/chickens">Chicken</FooterLink>
                 <FooterLink to="/menu/desserts">Desserts</FooterLink>
-                <FooterLink to="/#reservations">Reserve a Table</FooterLink>
+                <FooterLink onClick={() => navigate("/")} to="#reservations">
+                  Reserve a Table
+                </FooterLink>
               </ul>
             </div>
             <div>

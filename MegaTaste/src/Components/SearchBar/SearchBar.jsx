@@ -4,7 +4,7 @@ import Input from "../UI/Input/Input";
 import { HiOutlineSearch } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { TfiClose } from "react-icons/tfi";
-import { RxDividerVertical } from "react-icons/rx";
+import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AppContexts from "../../contexts/app-contexts";
 
@@ -13,34 +13,37 @@ const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const fetchResults = async () => {
+    try {
+      const response = await fetch(
+        `https://api.spoonacular.com/food/search?query=${query}&number=30&apiKey=0352397aab2844f7b9b8666dc38cce3b`
+      );
+      console.log(response);
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+      const data = await response.json();
+      const dataObj = data.searchResults.filter(
+        (obj) => obj.name === "Menu Items"
+      );
+
+      ctx.setSearchResult(dataObj.results);
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
+  };
+
   useEffect(() => {
     if (query.length != 0) {
-      (async () => {
-        setIsLoading(true);
-        try {
-          const response = await fetch(
-            "https://api.spoonacular.com/food/search?query=apple&number=2&apiKey=abd8629f34ba4258ae77c41d30f0e1ae"
-          );
-          console.log(response);
-          if (!response.ok) {
-            throw new Error("Something went wrong!");
-          }
-          const data = await response.json();
-          console.log(data);
-        } catch (error) {
-          setError(error.message);
-        }
-        setIsLoading(false);
-      })();
+      const fetchTimer = setTimeout(fetchResults, 3000);
     }
   }, [query]);
 
   const closeSearchField = () => ctx.setSearchFieldVisibilityState(false);
   const clearInput = () => setQuery("");
-  const displaySearchResult = () => {};
-  const getFunc = (event) => {
-    console.log(event.target);
-  };
+
   return (
     ctx.searchFieldIsOpen && (
       <>
@@ -51,7 +54,9 @@ const SearchBar = () => {
               label="Search"
               maxLength={80}
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value);
+              }}
             >
               <div className={styles.actions}>
                 {query.length != 0 && (
@@ -62,13 +67,13 @@ const SearchBar = () => {
                     <span></span>
                   </>
                 )}
-
-                <button
-                  className={styles.search__button}
-                  onClick={displaySearchResult}
+                <Link
+                  style={{ pointerEvents: query.length == 0 && "none" }}
+                  to="/search-results"
+                  onClick={query.length != 0 && closeSearchField}
                 >
                   <HiOutlineSearch />
-                </button>
+                </Link>
               </div>
             </Input>
             <button>
@@ -78,7 +83,15 @@ const SearchBar = () => {
           {
             <div className={styles.searchResults}>
               {query.length != 0 && isLoading && <p>Loading...</p>}
-              {query.length != 0 && !isLoading && <p>{error}</p>}
+              {query.length != 0 && !isLoading && error && <p>{error}</p>}
+              {query.length != 0 &&
+                !isLoading &&
+                !error &&
+                ctx.searchResult.map((result, i) => (
+                  <div key={i}>
+                    <img src={result.image} alt="" /> <p>{result.name}</p>
+                  </div>
+                ))}
             </div>
           }
         </Container>

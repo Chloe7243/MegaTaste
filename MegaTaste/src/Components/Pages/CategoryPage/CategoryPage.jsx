@@ -42,15 +42,6 @@ const CategoryPage = () => {
     })();
   }, []);
 
-  function imageExists(image_url) {
-    var http = new XMLHttpRequest();
-
-    http.open("HEAD", image_url, false);
-    http.send();
-
-    return http.status != 404;
-  }
-
   const toggleForm = () => {
     setShowFilterForm((prev) => !prev);
   };
@@ -105,10 +96,9 @@ const CategoryPage = () => {
         <div className={styles.products}>
           {!isLoading &&
             products.length > 0 &&
-            products
-              .map((productDetails, idx) => (
-                <Product product={productDetails} key={idx} />
-              ))}
+            products.map((productDetails, idx) => (
+              <Product product={productDetails} key={idx} />
+            ))}
           {!isLoading && !error && products.length === 0 && (
             <p>No products found!</p>
           )}

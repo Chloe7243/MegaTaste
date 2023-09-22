@@ -7,6 +7,8 @@ const AppContexts = React.createContext({
   setCartVisibilityState: () => {},
   searchFieldIsOpen: false,
   setSearchFieldVisibilityState: () => {},
+  searchResult: [],
+  setSearchResult: () => {},
 });
 
 export default AppContexts;

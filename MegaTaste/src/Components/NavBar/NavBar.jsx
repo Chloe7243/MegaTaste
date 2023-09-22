@@ -7,8 +7,14 @@ import logo from "../../assets/logo.png";
 import Button from "../UI/Button/Button";
 import logoName from "../../assets/logo_name.png";
 import Container from "../UI/Container/Container";
+import { useContext } from "react";
+import AppContexts from "../../contexts/app-contexts";
 
 const NavBar = () => {
+  const ctx = useContext(AppContexts);
+  const openCart = () => ctx.setCartVisibilityState(true);
+  const openSearchField = () => ctx.setSearchFieldVisibilityState(true);
+
   return (
     <Container className={styles.navbar__container}>
       <header className={styles.navbar}>
@@ -47,10 +53,10 @@ const NavBar = () => {
           </NavLink>
         </nav>
         <div className={styles["navbar-icons"]}>
-          <button>
+          <button onClick={openSearchField}>
             <HiOutlineSearch />
           </button>
-          <button>
+          <button onClick={openCart}>
             <HiOutlineShoppingBag />
           </button>
           <Button color={"var(--secondary-color)"}>

@@ -1,3 +1,11 @@
+.navbar__container {
+  z-index: 5;
+  background: var(--light-color);
+  position: sticky;
+  top: -.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -8,13 +16,6 @@
   padding: 4rem 0;
 }
 
-.navbar__container {
-  z-index: 5;
-  background: var(--light-color);
-  position: sticky;
-  top: -.5rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-}
 
 .navbar__mobile {
   display: none;
@@ -29,7 +30,7 @@
   justify-content: space-evenly;
   /* justify-content: space-between; */
   padding: 2rem 0;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 520;
 }
 
@@ -58,7 +59,7 @@
 
 .navbar-icons > button {
   border: none;
-  font-size: 3rem;
+  font-size: 4rem;
   background: none;
   cursor: pointer;
 }

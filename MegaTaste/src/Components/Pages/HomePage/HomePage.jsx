@@ -78,9 +78,9 @@ const HomePage = () => {
           </Container>
         </Slider>
         <div className={styles.button}>
-          <Button color="var(--secondary-color)">
-            <Link to="menu">View Our Menu</Link>
-          </Button>
+          <Link to="menu">
+            <Button color="var(--secondary-color)">View Our Menu</Button>
+          </Link>
         </div>
         <div className={styles.controls}>
           <span>
@@ -124,25 +124,26 @@ const HomePage = () => {
       <Container className={styles.benefits__container}>
         <h2>Tasty Grilled Dishes & Good Restaurant</h2>
         <img src={food} alt="" />
-        <div>
-          <ul>
-            <li>Exclusivity with our private dining</li>
-            <li>Healthy, expertly prepared dishes</li>
-            <li>Farm-fresh Ingredients</li>
-            <li>Award-winning Restaurant</li>
-          </ul>
-          <Button color={"var(--secondary-color)"}>
+        <ul>
+          <li>Exclusivity with our private dining</li>
+          <li>Healthy, expertly prepared dishes</li>
+          <li>Farm-fresh Ingredients</li>
+          <li>Award-winning Restaurant</li>
+        </ul>
+        {/* <Button color={"var(--secondary-color)"}>
             <Link to="/#reservations">Reserve A Table</Link>
-          </Button>
-        </div>
+          </Button> */}
       </Container>
 
-      <Form id="reservations" containerClasname={styles.reservations__container}>
+      <Form
+        id="reservations"
+        containerClasname={styles.reservations__container}
+      >
         <div>
           <Input type="text" label="Name" />
           <div>
-          <Input type="date" label="Date" />
-          <Input type="time" label="Time" />
+            <Input type="date" label="Date" />
+            <Input type="time" label="Time" />
           </div>
         </div>
         <div>

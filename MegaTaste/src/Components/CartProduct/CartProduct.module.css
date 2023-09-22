@@ -4,11 +4,13 @@
   gap: 2rem;
   padding-top: 1rem;
   border-top: 1px solid #cacaca;
+  font-size: 10rem;
 }
 
 .product-details img {
-  width: 10rem;
+  width: 30%;
 }
+
 .details{
   width: 100%;
 }
@@ -16,7 +18,7 @@
 .details > span:first-of-type{
   color: #555;
   font-weight: 500;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 .details > span > span{
@@ -34,14 +36,15 @@
 
 .details > span:last-child > button {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: white;
   background: var(--secondary-color);
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   display: flex;
   border-radius: 1rem;
 }
 
 .total-price {
+  font-size: 2.5rem;
   font-weight: 600;
 }

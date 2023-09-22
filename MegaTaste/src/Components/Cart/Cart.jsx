@@ -1,75 +1,89 @@
 import styles from "./Cart.module.css";
 import Button from "../UI/Button/Button";
-import burger from "../../assets/fastfood-1.webp";
 import { TfiClose } from "react-icons/tfi";
+import burger from "../../assets/fastfood-1.webp";
 import { PiCaretUpLight, PiCaretDownLight } from "react-icons/pi";
 import CartProduct from "../CartProduct/CartProduct";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AppContexts from "../../contexts/app-contexts";
 
 const Cart = () => {
+  const ctx = useContext(AppContexts);
   const [displayForm, setDisplayForm] = useState(false);
   const toggleForm = () => setDisplayForm((prev) => !prev);
-  const closeCart = () => {};
+  const closeCart = () => ctx.setCartVisibilityState(false);
   return (
-    <div className="overlay">
-      <div className={styles.cart}>
-        <header>
-          <h2>{(0 && "Your Cart") || ""}</h2>
-          <button onClick={closeCart} style={{ fontSize: "2rem" }}>
-            <TfiClose />
-          </button>
-        </header>
-        <div className={styles["cart-items"]}>
-          <div className={styles.table}>
-            <header>
-              <h4>Product</h4>
-              <h4>Total</h4>
-            </header>
-            <div className={styles.body}>
-              <CartProduct img={burger} />
-              {/* <CartProduct img={burger} /> */}
-            </div>
-          </div>
+    ctx.cartIsOpen && (
+      <>
+        <div className={styles.cart}>
+          <header>
+            <h2>{ctx.cartProducts.length ? "Your Cart" : ""}</h2>
+            <button onClick={closeCart} style={{ fontSize: "2rem" }}>
+              <TfiClose />
+            </button>
+          </header>
+          {ctx.cartProducts.length ? (
+            <div className={styles["cart-items"]}>
+              <div className={styles.table}>
+                <header>
+                  <h4>Product</h4>
+                  <h4>Total</h4>
+                </header>
+                <div className={styles["cart-body"]}>
+                  <CartProduct img={burger} />
+                  {/* <CartProduct img={burger} /> */}
+                </div>
+              </div>
 
-          <footer>
-            <div className={styles.instructions}>
-              <span>
-                Order special Instructions{" "}
-                <button onClick={toggleForm}>
-                  {(displayForm && <PiCaretUpLight />) || <PiCaretDownLight />}
-                </button>
-              </span>
-              {displayForm && (
-                <textarea
-                  name="suggestions"
-                  id="suggestions"
-                  cols=""
-                  rows="6"
-                  maxlength="200"
-                  wrap="hard"
-                ></textarea>
-              )}
+              <footer>
+                <div className={styles.instructions}>
+                  <span>
+                    Order special Instructions{" "}
+                    <button onClick={toggleForm}>
+                      {(displayForm && <PiCaretUpLight />) || (
+                        <PiCaretDownLight />
+                      )}
+                    </button>
+                  </span>
+                  {displayForm && (
+                    <textarea
+                      name="suggestions"
+                      id="suggestions"
+                      cols=""
+                      rows="6"
+                      maxlength="200"
+                      wrap="hard"
+                    ></textarea>
+                  )}
+                </div>
+                <div className={styles.subtotal}>
+                  <div>
+                    <span>
+                      <p>Subtotal:</p> <p>{"\u20A6 " + 5000}</p>
+                    </span>
+                    <p>Taxes and shipping are calulated at checkout</p>
+                  </div>
+                  <Button
+                    color="var( --secondary-color)"
+                    className={styles.checkout}
+                  >
+                    Check out
+                  </Button>
+                </div>
+              </footer>
             </div>
-            <div className={styles.subtotal}>
-              <span>
-                <p>Subtotal:</p> <p>{"\u20A6 " + 5000}</p>
-              </span>
-              <p>Taxes and shipping are calulated at checkout</p>
-              <Button
-                color="var( --secondary-color)"
-                className={styles.checkout}
-              >
-                Check out
+          ) : (
+            <div className={styles["empty-cart"]}>
+              <p>Your cart is empty</p>
+              <Button color="var(--secondary-color)" onClick={closeCart}>
+                Continue Shopping
               </Button>
             </div>
-          </footer>
+          )}
         </div>
-        {/* <div className={styles["empty-cart"]}>
-          <p>Your cart is empty</p>
-          <Button color="var(--secondary-color)">Continue Shopping</Button>
-        </div> */}
-      </div>
-    </div>
+        <div className="overlay" onClick={closeCart}></div>
+      </>
+    )
   );
 };
 

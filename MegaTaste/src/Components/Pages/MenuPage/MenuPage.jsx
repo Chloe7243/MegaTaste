@@ -14,6 +14,8 @@ import arrow from "../../../assets/arrow.avif";
 import styles from "./MenuPage.module.css";
 import burger from "../../../assets/fastfood-1.webp";
 import Category from "../../Category/Category";
+import Size from "../../Size/size";
+import Price from "../../Price/Price";
 
 const categories = [
   {
@@ -193,20 +195,11 @@ const AllCategories = () => {
               <li>Better for your health</li>
               <li>Best in organic foods</li>
             </ul>
-            <p className={styles.price}>
-              <span>{3500 - 0.2 * 3500}</span>
-              <span>{3500}</span>
-            </p>
-            <div className={styles.size}>
-              <p>Size</p>
-              <button>Large</button>
-              <button>Medium</button>
-              <button>Small</button>
-            </div>
-            <div>
+            <Price price={3500} />
+            <Size />
+            <Quantity>
               <p>Quantity</p>
-              <Quantity />
-            </div>
+            </Quantity>
             <Button color="var(--secondary-color)">Add To Cart</Button>
           </div>
           <img src={burger} alt="" />

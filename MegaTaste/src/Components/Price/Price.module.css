@@ -1,0 +1,19 @@
+.price {
+  font-size: 4rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.price span + span {
+  margin-left: 2rem;
+}
+
+.price span::before {
+  content: "\20A6  ";
+}
+
+.price :last-child {
+  color: #868585;
+  font-size: 2.5rem;
+  text-decoration: line-through;
+}

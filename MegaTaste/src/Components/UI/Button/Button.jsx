@@ -1,6 +1,6 @@
 import styles from "./Button.module.css";
 
-const Button = ({ children, disabled, color }) => {
+const Button = ({ children, disabled, color, onClick }) => {
   return (
     <div className={styles.button__container}>
       <div
@@ -10,7 +10,8 @@ const Button = ({ children, disabled, color }) => {
       <button
         disabled={disabled}
         className={styles.button}
-        style={{backgroundColor: color }}
+        style={{ backgroundColor: color }}
+        onClick={onClick}
       >
         {children}
       </button>

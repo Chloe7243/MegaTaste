@@ -1,14 +1,18 @@
 .cart {
-  height: inherit;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
   background: var(--light-color);
-  max-width: 40rem;
-  margin-left: calc(100% - 40rem);
+  width: min(55rem, 100%);
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
+  font-size: 3rem !important;
+  z-index: 100;
 }
 
-.cart >header{
+.cart > header {
   margin-bottom: 3rem;
 }
 
@@ -26,55 +30,62 @@
   justify-content: space-between;
 }
 
-.body{
-/* background: #000; */
-display: flex;
-flex-direction: column;
-gap: 2rem;
+.cart-body {
+  /* background: #000; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.cart > footer {
+.cart > .subtotal {
   justify-self: last baseline;
 }
 
 .instructions {
-  padding: 1rem 0;
-  font-size: 1.8rem;
+  display: block;
+  padding: 1rem 0 !important;
+  font-size: 2rem;
   font-weight: 500;
-  border-bottom: 1px solid #cacaca;
   border-top: 1px solid #cacaca;
 }
 
-.instructions span{
+.instructions span {
+  width: 100%;
   font-weight: 600;
   color: #555;
   display: flex;
   justify-content: space-between;
 }
 
-.instructions button{
+.instructions button {
   font-size: 2rem;
 }
+
 .instructions textarea {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
-
 .subtotal {
+  display: block;
   padding: 1rem 0;
 }
 
-.subtotal > span {
+.subtotal > div > span {
+  font-size: 5rem;
   display: flex;
+  /* gap: 3rem; */
   justify-content: space-between;
 }
 
-.subtotal > p {
+.subtotal > div p {
+  font-size: 2.5rem !important;
+}
+
+.subtotal div > p {
   color: #555;
-  font-weight: 500;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-weight: 600;
+  margin: 1rem 0;
 }
 
 .subtotal button {
@@ -103,7 +114,7 @@ gap: 2rem;
 }
 
 .empty-cart button {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 500;
   color: var(--light-color);
 }

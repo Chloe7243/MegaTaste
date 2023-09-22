@@ -67,12 +67,16 @@
   flex: 1;
 }
 
-.filter > button{
+.filter > button {
   display: flex;
   align-items: center;
   font-size: 2rem;
   gap: 1rem;
   font-weight: 500;
+}
+
+.filter > button > * {
+  transition: transform 500ms ease-in-out;
 }
 
 .dropdown > div {
@@ -89,13 +93,13 @@
   border-bottom: 1px solid;
 }
 
-.dropdown > div button{
+.dropdown > div button {
   font-size: 2rem;
   font-weight: 600;
   text-decoration: underline;
 }
 
-.dropdown span{
+.dropdown span {
   display: flex;
   align-items: center;
   gap: 1rem;

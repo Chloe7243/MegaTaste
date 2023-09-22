@@ -290,7 +290,7 @@ video {
 }
 
 .details > div:last-of-type {
-  width: 65%;
+  width: 50%;
   max-width: none;
   margin-top: 1rem;
   /* padding: 1rem 0; */
@@ -311,48 +311,4 @@ video {
   font-weight: 600;
   color: #555;
   gap: 1rem;
-}
-
-.price {
-  font-size: 4rem;
-  color: var(--secondary-color);
-  font-weight: 600;
-}
-
-.price span + span {
-  margin-left: 2rem;
-}
-
-.price span::before {
-  content: "\20A6";
-}
-
-.price :last-child {
-  font-size: 2.5rem;
-  text-decoration: line-through;
-}
-
-.size button {
-  font-weight: 500;
-  font-size: 1.7rem;
-  color: #000;
-  border: 1px solid;
-  padding: 1rem;
-  width: 20%;
-  border-radius: 2rem;
-}
-
-.size button + button {
-  margin-left: 2rem;
-}
-
-.size button.active {
-  background: #000;
-  color: white;
-}
-
-.quantity {
-  border: 2px solid;
-  width: 40%;
-  padding: 1rem;
 }

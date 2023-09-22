@@ -4,10 +4,16 @@ import { LuMailOpen, LuSmartphone } from "react-icons/lu";
 
 import styles from "./Info.module.css";
 import Container from "../UI/Container/Container";
+import { useContext } from "react";
+import AppContexts from "../../contexts/app-contexts";
 
 const Info = () => {
+  const ctx = useContext(AppContexts);
+  const closeSearchField = () => {
+    ctx.searchFieldIsOpen && ctx.setSearchFieldVisibilityState(false);
+  };
   return (
-    <Container className={styles.info}>
+    <Container className={styles.info} onClick={closeSearchField}>
       <div className={styles["info__contact"]}>
         <span>
           <LuSmartphone /> Phone:+234 5454 5445

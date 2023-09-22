@@ -22,10 +22,16 @@ input:not(:placeholder-shown) ~ label {
   font-size: 1.2rem;
 }
 
-input:focus ~ label,
+/* input:focus ~ label,
 input:not(:placeholder-shown) ~ label {
   transform: translateY(-220%);
-}
+} */
+
+/* input[type="search"]:focus ~ label,
+input[type="search"]:not(:placeholder-shown) ~ label {
+  transform: translateY(-150%);
+  font-size: 1.2rem;
+} */
 
 label {
   color: #555;

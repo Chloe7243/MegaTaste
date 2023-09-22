@@ -2,17 +2,25 @@ import Product from "../../Product/Product";
 import styles from "./CategoryPage.module.css";
 import Container from "../../UI/Container/Container";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Banner from "../../Banner/Banner";
 import Input from "../../UI/Input/Input";
 import { PiCaretDownBold } from "react-icons/pi";
 const CategoryPage = () => {
+  const [sort, sortBy] = useState(null);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showFilterForm, setShowFilterForm] = useState(false);
 
+  const sortProducts = (event) => {
+    const sortMethod = event.target.value;
+    console.log(sortMethod);
+    sortBy(sortMethod);
+  };
+
   const categoryName = useParams().name;
+
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -44,7 +52,7 @@ const CategoryPage = () => {
   }
 
   const toggleForm = () => {
-    setShowFilterForm((prev)=> !prev)
+    setShowFilterForm((prev) => !prev);
   };
 
   return (
@@ -55,7 +63,10 @@ const CategoryPage = () => {
           <div className={styles.filter}>
             <p>Filter:</p>
             <button onClick={toggleForm}>
-              Price <PiCaretDownBold />
+              Price
+              <PiCaretDownBold
+                style={{ transform: showFilterForm && "rotate(180deg)" }}
+              />
             </button>
             {showFilterForm && (
               <form className={styles.dropdown}>
@@ -78,12 +89,12 @@ const CategoryPage = () => {
           </div>
           <div className={styles.sort}>
             <p>Sort by:</p>
-            <select name="" id="">
+            <select name="sort" id="" onChange={sortProducts}>
               <option value="">Best Selling</option>
-              <option value="">Alphabetically, A - Z</option>
-              <option value="">Alphabetically, Z - A</option>
-              <option value="">Price, high to low</option>
-              <option value="">Price, low to high</option>
+              <option value="l_asc">Alphabetically, A - Z</option>
+              <option value="l_desc">Alphabetically, Z - A</option>
+              <option value="p_asc">Price, high to low</option>
+              <option value="p_desc">Price, low to high</option>
             </select>
 
             <p>
@@ -95,7 +106,6 @@ const CategoryPage = () => {
           {!isLoading &&
             products.length > 0 &&
             products
-              .filter((details) => imageExists(details.img) != false)
               .map((productDetails, idx) => (
                 <Product product={productDetails} key={idx} />
               ))}

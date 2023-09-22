@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Quantity.module.css";
 
-const Quantity = ({ getQuantity }) => {
+const Quantity = ({ getQuantity, children }) => {
   const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     getQuantity && getQuantity(quantity);
@@ -12,15 +12,18 @@ const Quantity = ({ getQuantity }) => {
       : setQuantity((prev) => (prev -= 1));
   };
   return (
-    <span className={styles.quantity}>
-      <button onClick={changeQuantity} disabled={quantity === 1}>
-        -
-      </button>
-      {quantity}
-      <button className="add" onClick={changeQuantity}>
-        +
-      </button>
-    </span>
+    <div>
+      {children}
+      <span className={styles.quantity}>
+        <button onClick={changeQuantity} disabled={quantity === 1}>
+          -
+        </button>
+        {quantity}
+        <button className="add" onClick={changeQuantity}>
+          +
+        </button>
+      </span>
+    </div>
   );
 };
 

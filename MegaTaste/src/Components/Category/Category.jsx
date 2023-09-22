@@ -6,7 +6,7 @@ const Category = ({ img, name }) => {
 
 return (
     <Link
-      to={`/menu/${name.toLowerCase().replaceAll(" ", "-")}`}
+      to={name.toLowerCase().replaceAll(" ", "-")}
       className={styles.category}
     >
       <img src={img} alt="" />

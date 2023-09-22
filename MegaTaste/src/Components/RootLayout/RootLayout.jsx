@@ -7,16 +7,16 @@ import { Outlet } from "react-router-dom";
 
 const RootLayout = () => {
   return (
-    <>
-      {/* <Cart /> */}
+    <div style={{position: "relative"}}>
+      <Cart />
       <Info />
-      {/* <SearchBar /> */}
+      <SearchBar />
       <NavBar />
       <main>
       <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

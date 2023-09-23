@@ -107,13 +107,13 @@ main:has(.about__container) h2::after {
   font-size: 5rem;
 }
 
-.hover-content button {
-  width: 50%;
+.hover-content a {
+  min-width: 50%;
+  width: fit-content;
   padding: 2rem;
 }
 
-.hover-content button,
-.hover-content button a {
+.hover-content a {
   background: white;
   border-radius: 1.5rem;
   color: black;
@@ -121,7 +121,7 @@ main:has(.about__container) h2::after {
   font-size: 2rem;
 }
 
-.hover-content button:hover {
+.hover-content a:hover {
   text-decoration: underline;
 }
 
@@ -249,7 +249,6 @@ div:has(.histories) > h2 {
   gap: 4rem;
 }
 
-
 .ratings .star {
   /* border: 2px salmon; */
   color: orange;
@@ -262,7 +261,7 @@ div:has(.histories) > h2 {
 }
 
 .about-dots {
-  width: 15% !important;
+  width: fit-content;
   transform: translateY(2rem) !important;
 }
 
@@ -272,7 +271,7 @@ div:has(.histories) > h2 {
 
 .about-dots li button {
   border-radius: inherit;
-  padding: 3rem;
+  /* padding: 3rem; */
   border: 0.5rem solid var(--secondary-color) !important;
   text-indent: -9999px;
 }
@@ -293,39 +292,22 @@ div:has(.histories) > h2 {
   width: 30%;
   /* max-height: 30rem; */
   border-radius: 2rem;
+  transition: transform 2s;
 }
 
 .feedback-images:hover img:first-child {
-  animation: moveimg1 4s;
+  transform: translateX(210%);
 }
-
-@keyframes moveimg1 {
-  50% {
-    transform: translateX(210%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .feedback-images img:nth-child(2) {
   margin-bottom: 15rem;
 }
 
-@keyframes moveimg2 {
-  50% {
-    transform: translateX(-210%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .feedback-images img:last-child {
+  z-index: -1;
+
   margin-bottom: 30rem;
 }
 
 .feedback-images:hover img:last-child {
-  z-index: -1;
-  animation: moveimg2 4s;
+  transform: translateX(-210%);
 }

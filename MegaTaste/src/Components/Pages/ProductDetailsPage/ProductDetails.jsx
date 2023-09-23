@@ -22,7 +22,7 @@ const ProductDetails = () => {
   const [showText, setShowText] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [size, getSize] = useState();
-  const [quantity, getQuantity] = useState();
+  const [quantity, getQuantity] = useState(1);
   const [productDetailsCart, setProductDetailsCart] = useState({});
 
   const ctx = useContext(AppContexts);
@@ -39,7 +39,7 @@ const ProductDetails = () => {
       try {
         console.log("loading");
         const response = await fetch(
-          `https://api.spoonacular.com/food/menuItems/${id}?query&apiKey=abd8629f34ba4258ae77c41d30f0e1ae`
+          `https://api.spoonacular.com/food/menuItems/${id}?query&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
         );
         console.log(response);
         if (!response.ok) {
@@ -97,14 +97,25 @@ const ProductDetails = () => {
   ];
 
   const addToCart = () => {
-    setProductDetailsCart({
-      productId: ctx.cartProducts.length,
-      productImage: details.image,
-      productName: details.title,
-      productPrice: Math.round(details.id / 100),
-      productSize: size,
-      productQuantity: quantity,
-    });
+    const existingProduct = ctx.cartProducts.filter(
+      (obj) => obj.mainId === details.id && obj.size === size
+    );
+
+    if (existingProduct.length != 0) {
+      existingProduct[0].quantity += quantity;
+      setProductDetailsCart(existingProduct[0]);
+    } else
+      setProductDetailsCart({
+        mainId: details.id,
+        productId: ctx.cartProducts.length,
+        productImage: details.image,
+        productName: details.title,
+        productPrice: Math.round(details.id / 100),
+        productSize: size,
+        productQuantity: quantity,
+      });
+
+    getQuantity(1);
   };
 
   useEffect(() => {
@@ -149,13 +160,9 @@ const ProductDetails = () => {
               </div>
               <div className={styles.details}>
                 <h2>{details.title}</h2>
-                <Price
-                  price={
-                    details.price || Math.round(details.id / 100)
-                  }
-                />
+                <Price price={details.price || Math.round(details.id / 100)} />
                 <Size getSize={getSize} />
-                <Quantity getQuantity={getQuantity}>
+                <Quantity cartQuantity={quantity} getQuantity={getQuantity}>
                   <p>Quantity</p>
                 </Quantity>
                 <Button color="var(--secondary-color)" onClick={addToCart}>

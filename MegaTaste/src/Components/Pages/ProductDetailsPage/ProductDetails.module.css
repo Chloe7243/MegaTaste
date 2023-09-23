@@ -45,41 +45,30 @@
   flex-direction: column;
   width: 50%;
   border: 2px solid #cacaca;
-  height: 70rem;
+  height: 65rem;
   align-items: center;
 }
 
 .product-images__carousel {
   width: 100%;
   height: 100%;
-  border: 2px solid red;
 }
 
 .product-images__carousel .detail-image {
-  border: 3px solid blue;
-  position: relative;
-}
-
-.product-images__carousel .detail-image > div {
-  position: absolute;
-  top: 0;
   width: 100%;
   height: 100%;
-  background: #8585857c;
 }
 
 .product-images__carousel .detail-image > img {
-  border: 4px solid purple;
   width: 100%;
-  height: inherit;
-  background: #000;
+  height: 60rem;
 }
 
-:global(.slick-dots) {
-  height: 20%;
+.product-images__carousel:global(.slick-dots) {
+  height: 22%;
   display: flex !important;
   left: 50%;
-  bottom: -20rem;
+  bottom: -19rem;
   transform: translateX(-50%);
   justify-content: center;
   width: 75%;
@@ -87,19 +76,19 @@
   gap: 1rem;
 }
 
-:global(.slick-dots) li {
+.product-images__carousel:global(.slick-dots) li {
   border: 1px solid #cacaca;
   width: 100%;
   height: 100%;
   flex: 1;
 }
 
-:global(.slick-dots) li img {
+.product-images__carousel:global(.slick-dots) li img {
   width: 100%;
   height: 100%;
 }
 
-:global(li.slick-active) {
+.product-images__carousel:global(li.slick-active) {
   border: 2px solid #000;
 }
 
@@ -126,7 +115,15 @@
 
 .details__container .details > div:nth-child(5),
 .details__container .details > div:nth-child(6) {
-  min-width: 60%;
+  max-width: 50rem;
+}
+
+.details__container .details > div:has(button) > div{
+  left: 0;
+}
+
+.details__container .details > div:has(button) > button{
+  right: 17%;
 }
 
 .details__container .details > div:nth-child(5) button,

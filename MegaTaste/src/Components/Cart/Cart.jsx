@@ -5,6 +5,7 @@ import { PiCaretUpLight, PiCaretDownLight } from "react-icons/pi";
 import CartProduct from "../CartProduct/CartProduct";
 import { useState, useContext, useEffect } from "react";
 import AppContexts from "../../contexts/app-contexts";
+import emptyBag from "../../assets/emptyBag.svg"
 
 const Cart = () => {
   const ctx = useContext(AppContexts);
@@ -72,11 +73,9 @@ const Cart = () => {
               </footer>
             </div>
           ) : (
-            <div className={styles["empty-cart"]}>
+              <div className={styles["empty-cart"]}>
+                <img src={emptyBag} alt="" />
               <p>Your cart is empty</p>
-              <Button color="var(--secondary-color)" onClick={closeCart}>
-                Continue Shopping
-              </Button>
             </div>
           )}
         </div>

@@ -17,7 +17,7 @@ const SearchBar = () => {
   const fetchResults = async () => {
     try {
       const response = await fetch(
-        `https://api.spoonacular.com/food/search?query=${query}&number=30&apiKey=0352397aab2844f7b9b8666dc38cce3b`
+        `https://api.spoonacular.com/food/search?query=${query}&number=30&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
       );
       console.log(response);
       if (!response.ok) {

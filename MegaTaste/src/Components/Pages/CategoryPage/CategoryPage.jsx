@@ -26,7 +26,7 @@ const CategoryPage = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/food/menuItems/search?query=${categoryName}&number=100&cuisine=american&apiKey=abd8629f34ba4258ae77c41d30f0e1ae`
+          `https://api.spoonacular.com/food/menuItems/search?query=${categoryName}&number=100&cuisine=american&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
         );
         console.log(response);
         if (!response.ok) {

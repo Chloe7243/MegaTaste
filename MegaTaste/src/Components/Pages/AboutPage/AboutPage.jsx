@@ -3,7 +3,7 @@ import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import Container from "../../UI/Container/Container";
 import Banner from "../../Banner/Banner";
 import styles from "./AboutPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import service1 from "../../../assets/step1.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -21,6 +21,7 @@ import history3 from "../../../assets/history-3.jpeg";
 import history4 from "../../../assets/history-4.jpeg";
 
 const AboutPage = () => {
+  const navigate = useNavigate();
   var settings = {
     dots: true,
     speed: 1000,
@@ -29,7 +30,7 @@ const AboutPage = () => {
     slidesToScroll: 1,
     accessibility: true,
     autoplaySpeed: 5000,
-    dotsClass: ` slick-dots ${styles["about-dots"]}`,
+    dotsClass: `slick-dots ${styles["about-dots"]}`,
   };
   return (
     <>
@@ -55,9 +56,7 @@ const AboutPage = () => {
                 Savor the art of culinary craftsmanship in every exquisite dish
                 at this restaurant.
               </p>
-              <button>
-                <Link to="/menu">View Menu</Link>
-              </button>
+                <a href="/menu">View Menu</a>
             </div>
           </div>
           <div>
@@ -68,9 +67,7 @@ const AboutPage = () => {
                 Sip on pure delight as this cocktail weaves together a symphony
                 of flavors that dance on your palate.
               </p>
-              <button>
-                <Link to="/menu/cocktails">View Cocktails</Link>
-              </button>
+                <a href="/menu/cocktails">View Cocktails</a>
             </div>
           </div>
           <div>
@@ -81,9 +78,7 @@ const AboutPage = () => {
                 Experience the epitome of personalized luxury and intimacy in
                 our exclusive private dining spaces.
               </p>
-              <button>
-                <Link to="/#reservations">Reserve a Table</Link>
-              </button>
+                <a onClick={() => navigate("/")} href="#reservations">Reserve a Table</a>
             </div>
           </div>
         </div>

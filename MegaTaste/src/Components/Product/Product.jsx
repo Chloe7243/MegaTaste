@@ -12,8 +12,13 @@ const Product = ({ product, query }) => {
     >
       <img src={product.image} alt="Soup" className={styles["product-image"]} />
       <div className={styles["product-details"]}>
-        <p>{product.title || product.name}</p>
-        <button onClick={openModalDetails}>
+        <div>
+          <p>{product.title || product.name}</p>
+          <p className={styles.price}>
+            {"\u20A6 " + Math.round(product.id / 100)}
+          </p>
+        </div>
+        <button className={styles.showModal} onClick={openModalDetails}>
           <BiShoppingBag />
         </button>
       </div>

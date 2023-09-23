@@ -1,5 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { HiOutlineShoppingBag, HiOutlineSearch } from "react-icons/hi";
+import {
+  PiShoppingBagThin,
+  PiMagnifyingGlassThin,
+  PiMagnifyingGlassLight,
+  PiShoppingCartSimpleThin,
+} from "react-icons/pi";
 
 import styles from "./NavBar.module.css";
 import Logo from "../Logo/Logo";
@@ -55,10 +60,10 @@ const NavBar = () => {
         </nav>
         <div className={styles["navbar-icons"]}>
           <button onClick={openSearchField}>
-            <HiOutlineSearch />
+            <PiMagnifyingGlassLight />
           </button>
           <button onClick={openCart}>
-            <HiOutlineShoppingBag />
+            <PiShoppingCartSimpleThin />
             {ctx.cartProducts.length != 0 && (
               <p className={styles["number-of-items"]}>
                 {ctx.cartProducts.length}

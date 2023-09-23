@@ -290,17 +290,19 @@ video {
 }
 
 .details > div:last-of-type {
-  width: 50%;
-  max-width: none;
+  max-width: 35rem;
   margin-top: 1rem;
-  /* padding: 1rem 0; */
-  /* margin: 1.5rem 0; */
+}
+
+.details > div:last-of-type > div {
+  left: 0;
 }
 
 .details > div:last-of-type button {
   font-weight: 500;
   font-size: 1.7rem;
   color: white;
+  right: 15%;
 }
 
 .benefits {

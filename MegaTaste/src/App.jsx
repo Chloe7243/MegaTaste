@@ -13,28 +13,15 @@ import AboutPage from "./Components/Pages/AboutPage/AboutPage";
 import CategoryPage from "./Components/Pages/CategoryPage/CategoryPage";
 import SearchResult from "./Components/Pages/SearchResultPage/SearchResult";
 import ProductDetails from "./Components/Pages/ProductDetailsPage/ProductDetails";
-import AppContexts from "./contexts/app-contexts";
+import { AppProvider } from "./contexts/app-contexts";
+import ErrorPage from "./Components/Pages/ErrorPage/ErrorPage";
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([]);
-  const [cartIsOpen, setCartVisibilityState] = useState(false);
-  const [searchFieldIsOpen, setSearchFieldVisibilityState] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
   return (
-    <AppContexts.Provider
-      value={{
-        cartProducts: cartProducts,
-        setCartProducts: setCartProducts,
-        cartIsOpen: cartIsOpen,
-        setCartVisibilityState: setCartVisibilityState,
-        searchFieldIsOpen: searchFieldIsOpen,
-        setSearchFieldVisibilityState: setSearchFieldVisibilityState,
-        searchResult: searchResult,
-        setSearchResult: setSearchResult,
-      }}
-    >
+    <AppProvider>
       <Routes>
         <Route path="/" element={<RootLayout />}>
+          <Route path="*" element={<ErrorPage />} />
           <Route index element={<HomePage />} />
           <Route path="contact" element={<Contact />} />
           <Route path="menu">
@@ -45,10 +32,10 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="search-results" element={<SearchResult />} />
+          <Route path="search-results/:name" element={<SearchResult />} />
         </Route>
       </Routes>
-    </AppContexts.Provider>
+    </AppProvider>
   );
 }
 

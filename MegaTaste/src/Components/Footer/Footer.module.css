@@ -100,6 +100,16 @@ footer > div:first-of-type {
   border: 1px solid #cacaca;
 }
 
+.newsletter{
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter div:has(button){
+  max-width: 35rem;
+  align-self: flex-end;
+}
+
 .newsletter button {
   font-weight: 500;
   color: white;

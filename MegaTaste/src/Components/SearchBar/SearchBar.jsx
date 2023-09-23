@@ -27,8 +27,8 @@ const SearchBar = () => {
       const dataObj = data.searchResults.filter(
         (obj) => obj.name === "Menu Items"
       );
-
-      ctx.setSearchResult(dataObj.results);
+      console.log(dataObj);
+      ctx.setSearchResult(dataObj[0].results);
     } catch (error) {
       setError(error.message);
     }
@@ -37,7 +37,8 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (query.length != 0) {
-      const fetchTimer = setTimeout(fetchResults, 3000);
+      const fetchTimer = setTimeout(fetchResults, 2500);
+      return () => clearTimeout(fetchTimer);
     }
   }, [query]);
 
@@ -55,6 +56,7 @@ const SearchBar = () => {
               maxLength={80}
               value={query}
               onChange={(event) => {
+                setIsLoading(true);
                 setQuery(event.target.value);
               }}
             >
@@ -69,7 +71,7 @@ const SearchBar = () => {
                 )}
                 <Link
                   style={{ pointerEvents: query.length == 0 && "none" }}
-                  to="/search-results"
+                  to={`/search-results/${query}`}
                   onClick={query.length != 0 && closeSearchField}
                 >
                   <HiOutlineSearch />
@@ -87,10 +89,18 @@ const SearchBar = () => {
               {query.length != 0 &&
                 !isLoading &&
                 !error &&
-                ctx.searchResult.map((result, i) => (
-                  <div key={i}>
-                    <img src={result.image} alt="" /> <p>{result.name}</p>
-                  </div>
+                (ctx.searchResult.length != 0 ? (
+                  ctx.searchResult.map((result, i) => (
+                    <Link
+                      key={i}
+                      to={`/menu/${query}/${result.id}`}
+                      onClick={closeSearchField}
+                    >
+                      <img src={result.image} alt="" /> <p>{result.name}</p>
+                    </Link>
+                  ))
+                ) : (
+                  <p>No Products Found</p>
                 ))}
             </div>
           }

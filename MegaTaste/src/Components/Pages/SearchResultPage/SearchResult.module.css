@@ -1,0 +1,41 @@
+.search-result__container {
+  padding: 5rem 0;
+}
+
+.sort {
+  display: flex;
+  float: right;
+  gap: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.sort select {
+  font-size: 2.5rem;
+  padding: 1rem;
+  width: 30rem;
+  border: none;
+  border-bottom: 0.3rem solid;
+}
+
+.sort > select + p {
+  margin-left: 6rem;
+}
+
+.sort select:focus {
+  outline: none;
+}
+
+.products {
+  width: 100%;
+  padding: 10rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.products > p {
+  text-align: center;
+  font-size: 4rem;
+}

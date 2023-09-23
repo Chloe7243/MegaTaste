@@ -13,6 +13,7 @@ import Price from "../../Price/Price";
 import { useContext, useEffect, useState } from "react";
 import Product from "../../Product/Product";
 import AppContexts from "../../../contexts/app-contexts";
+import { PiCaretDownLight, PiCaretUpLight } from "react-icons/pi";
 
 const ProductDetails = () => {
   const [error, setError] = useState(null);
@@ -97,9 +98,10 @@ const ProductDetails = () => {
 
   const addToCart = () => {
     setProductDetailsCart({
+      productId: ctx.cartProducts.length,
       productImage: details.image,
       productName: details.title,
-      productPrice: details.price,
+      productPrice: Math.round(details.id / 100),
       productSize: size,
       productQuantity: quantity,
     });
@@ -140,15 +142,22 @@ const ProductDetails = () => {
                     productImages.map((img, i) => (
                       <div className={styles["detail-image"]} key={img + i}>
                         <img src={img} alt="" />
+                        <div className={styles.image__overlay}></div>
                       </div>
                     ))}
                 </Slider>
               </div>
               <div className={styles.details}>
                 <h2>{details.title}</h2>
-                <Price price={details.price || 1200} />
+                <Price
+                  price={
+                    details.price || Math.round(details.id / 100)
+                  }
+                />
                 <Size getSize={getSize} />
-                <Quantity getQuantity={getQuantity} />
+                <Quantity getQuantity={getQuantity}>
+                  <p>Quantity</p>
+                </Quantity>
                 <Button color="var(--secondary-color)" onClick={addToCart}>
                   Add To Cart
                 </Button>
@@ -159,7 +168,10 @@ const ProductDetails = () => {
                 </p>
                 <div>
                   <h4>
-                    Description <button onClick={toggleText}>click</button>
+                    Description{" "}
+                    <button onClick={toggleText}>
+                      {showText ? <PiCaretUpLight /> : <PiCaretDownLight />}
+                    </button>
                   </h4>
                   {showText && (
                     <p>
@@ -176,14 +188,14 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            {/* <div className={styles["related"]}>
+            <div className={styles["related"]}>
               <h3>You may also like</h3>
               <div>
                 {products.map((productDetails, idx) => (
                   <Product product={productDetails} key={idx} />
                 ))}
               </div>
-            </div> */}
+            </div>
           </>
         )}
         {!isLoading && !error && details.length === 0 && (

@@ -25,13 +25,11 @@
 
 .breadcrumb {
   display: flex;
-  justify-content: space-between;
+  gap: 3rem;
   text-align: center;
-  /* word-spacing: 2rem; */
+  width: fit-content;
   text-transform: capitalize;
   color: white;
-  max-width: 40rem;
-  min-width: 30rem;
   padding: 1.7rem 3.5rem;
   font-size: 2rem;
   font-weight: 600;

@@ -15,24 +15,34 @@
   width: 100%;
 }
 
-.details > span:first-of-type {
-  color: #555;
-  font-weight: 500;
-  font-size: 2rem;
-}
-
 .details > span > span {
   display: flex;
   justify-content: space-between;
   color: black;
-  gap: 5rem;
+  gap: 2rem;
+}
+
+.details > span > span > p:first-of-type {
+  font-weight: 600;
+  font-size: 2.3rem;
+}
+
+.details > span > p {
+  color: #555;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 .details > span:last-child {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.details > span:last-child > div > span {
+  width: 17rem;
+  padding: 0;
 }
 
 .details > span:last-child > button {
@@ -46,7 +56,8 @@
 }
 
 .total-price {
-  min-width: 7rem;
+  width: fit-content;
+  text-wrap: nowrap;
   font-size: 2.5rem;
   font-weight: 600;
 }

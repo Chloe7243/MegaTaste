@@ -13,7 +13,6 @@
 
 .tags {
   font-weight: 500;
-  padding-top: 2rem;
 }
 
 .details__container h2 {
@@ -42,19 +41,38 @@
 }
 
 .details__container .description .detail-images {
+  display: flex;
   flex-direction: column;
   width: 50%;
-  border: 1px solid #cacaca;
+  border: 2px solid #cacaca;
   height: 70rem;
+  align-items: center;
 }
 
 .product-images__carousel {
   width: 100%;
   height: 100%;
+  border: 2px solid red;
+}
+
+.product-images__carousel .detail-image {
+  border: 3px solid blue;
+  position: relative;
+}
+
+.product-images__carousel .detail-image > div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #8585857c;
 }
 
 .product-images__carousel .detail-image > img {
+  border: 4px solid purple;
   width: 100%;
+  height: inherit;
+  background: #000;
 }
 
 :global(.slick-dots) {
@@ -88,7 +106,7 @@
 .description .details {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   overflow-y: auto;
   flex: 1;
 }
@@ -106,8 +124,9 @@
   font-size: 2.7rem;
 }
 
+.details__container .details > div:nth-child(5),
 .details__container .details > div:nth-child(6) {
-  margin: 3rem 0;
+  min-width: 60%;
 }
 
 .details__container .details > div:nth-child(5) button,
@@ -129,7 +148,6 @@
 }
 
 .details__container .details > div:last-child {
-  margin-top: 3rem;
   font-size: 2.5rem;
 }
 .details__container .details > div:last-child > p {

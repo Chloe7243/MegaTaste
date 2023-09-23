@@ -59,8 +59,17 @@ const NavBar = () => {
           </button>
           <button onClick={openCart}>
             <HiOutlineShoppingBag />
+            {ctx.cartProducts.length != 0 && (
+              <p className={styles["number-of-items"]}>
+                {ctx.cartProducts.length}
+              </p>
+            )}
           </button>
-          <a onClick={() => navigate("/")} href="#reservations" className={styles.reserve}>
+          <a
+            onClick={() => navigate("/")}
+            href="#reservations"
+            className={styles.reserve}
+          >
             <Button color={"var(--secondary-color)"}>Reserve A Table</Button>
           </a>
         </div>

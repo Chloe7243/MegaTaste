@@ -7,7 +7,7 @@
   width: min(55rem, 100%);
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   font-size: 3rem !important;
   z-index: 100;
 }
@@ -17,24 +17,37 @@
 }
 
 .cart header {
-  display: flex;
   width: 100%;
+  display: flex;
+  padding: 0 1.5rem;
   align-items: center;
   justify-content: space-between;
 }
 
 .cart-items {
-  height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.cart-items header {
+  flex: 0 1 auto;
+  padding: 0 2.5rem;
+}
+
 .cart-body {
-  /* background: #000; */
   display: flex;
+  flex: 1 1 1rem;
   flex-direction: column;
   gap: 2rem;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.cart footer {
+  flex: 0 1 25rem;
+  padding: 0 1.5rem;
 }
 
 .cart > .subtotal {
@@ -96,6 +109,7 @@
 }
 
 .cart:has(.empty-cart) {
+  padding: 3rem ;
   align-items: center;
 }
 
@@ -113,8 +127,12 @@
   gap: 1rem;
 }
 
+.empty-cart div:has(button){
+  width: 35rem;
+}
+
 .empty-cart button {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 500;
   color: var(--light-color);
 }

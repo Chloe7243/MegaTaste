@@ -6,7 +6,7 @@
   position: relative;
   padding: 3.5rem;
   border-radius: 1.5rem;
-  max-width: 27rem;
+  /* direction: rtl; */
 }
 
 .button__outline {
@@ -17,7 +17,9 @@
   height: inherit;
   width: 70%;
   border-radius: inherit;
-  transition: width 300ms ease-in;}
+  transition: width 300ms ease-in;
+  left: 15%;
+}
 
 .button {
   border-radius: inherit;
@@ -26,7 +28,7 @@
   width: 80%;
   top: 50%;
   transform: translateY(-50%);
-  right: 15%;
+  right: 0;
 }
 
 .button:hover {

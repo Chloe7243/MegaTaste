@@ -3,7 +3,7 @@ import Button from "../UI/Button/Button";
 import { TfiClose } from "react-icons/tfi";
 import { PiCaretUpLight, PiCaretDownLight } from "react-icons/pi";
 import CartProduct from "../CartProduct/CartProduct";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AppContexts from "../../contexts/app-contexts";
 
 const Cart = () => {
@@ -12,6 +12,7 @@ const Cart = () => {
   const [subtotal, setSubtotal] = useState(0);
   const toggleForm = () => setDisplayForm((prev) => !prev);
   const closeCart = () => ctx.setCartVisibilityState(false);
+
   return (
     ctx.cartIsOpen && (
       <>
@@ -24,18 +25,15 @@ const Cart = () => {
           </header>
           {ctx.cartProducts.length ? (
             <div className={styles["cart-items"]}>
-              <div className={styles.table}>
-                <header>
-                  <h4>Product</h4>
-                  <h4>Total</h4>
-                </header>
-                <div className={styles["cart-body"]}>
-                  {ctx.cartProducts.map((productDetails, i) => (
-                    <CartProduct details={productDetails} key={i} />
-                  ))}
-                </div>
+              <header>
+                <h4>Product</h4>
+                <h4>Total</h4>
+              </header>
+              <div className={styles["cart-body"]}>
+                {ctx.cartProducts.map((productDetails, i) => (
+                  <CartProduct details={productDetails} key={i} />
+                ))}
               </div>
-
               <footer>
                 <div className={styles.instructions}>
                   <span>

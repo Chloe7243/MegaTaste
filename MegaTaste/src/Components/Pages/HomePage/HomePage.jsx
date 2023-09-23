@@ -77,11 +77,7 @@ const HomePage = () => {
             </div>
           </Container>
         </Slider>
-        <div className={styles.button}>
-          <Link to="menu">
-            <Button color="var(--secondary-color)">View Our Menu</Button>
-          </Link>
-        </div>
+
         <div className={styles.controls}>
           <span>
             <LiaAngleLeftSolid />
@@ -101,7 +97,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <h3>Welcome to MEgaTaste</h3>
+          <h3>Welcome to MegaTaste</h3>
           <h2>Feel the taste of foods</h2>
           <p>
             Discover a culinary haven where exceptional food meets exclusive

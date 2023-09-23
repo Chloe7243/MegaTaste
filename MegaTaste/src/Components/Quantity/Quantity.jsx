@@ -15,13 +15,13 @@ const Quantity = ({ cartQuantity, getQuantity, children }) => {
       : setQuantity((prev) => (prev -= 1));
   };
   return (
-    <div>
+    <div className={styles.q}>
       {children}
       <span className={styles.quantity}>
         <button onClick={changeQuantity} disabled={quantity === 1}>
           -
         </button>
-        {quantity}
+        <p>{quantity}</p>
         <button className="add" onClick={changeQuantity}>
           +
         </button>

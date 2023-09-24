@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import Quantity from "../Quantity/Quantity";
 import styles from "./CartProduct.module.css";
@@ -10,6 +10,15 @@ const CartProduct = ({ details }) => {
   const ctx = useContext(AppContexts);
   const [quantity, setQuantity] = useState(details.productQuantity);
   const getQuantity = (q) => setQuantity(q);
+
+  useEffect(() => {
+    if (quantity != details.productQuantity) {
+      const product = details;
+      product.productQuantity = quantity;
+      ctx.deleteCartProduct(details.productId);
+      ctx.setCartProducts((prev) => [product, ...prev]);
+    }
+  }, [quantity]);
 
   return (
     <div className={styles["product-details"]}>
@@ -27,7 +36,10 @@ const CartProduct = ({ details }) => {
         </span>
         <span className={styles.quantity}>
           <Quantity cartQuantity={quantity} getQuantity={getQuantity} />
-          <button className={styles.delete} onClick={() => ctx.deleteCartProduct(details.productId)}>
+          <button
+            className={styles.delete}
+            onClick={() => ctx.deleteCartProduct(details.productId)}
+          >
             <MdDelete />
           </button>
         </span>

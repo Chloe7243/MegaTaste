@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import styles from "./Quantity.module.css";
 
-const Quantity = ({ cartQuantity, getQuantity, children }) => {
-  const [quantity, setQuantity] = useState(cartQuantity? Number(cartQuantity) : 1);
+const Quantity = ({ cartQuantity, getQuantity, children, reset, setReset }) => {
+  const [quantity, setQuantity] = useState(
+    cartQuantity ? Number(cartQuantity) : 1
+  );
+
+
+  useEffect(() => {
+    if (reset === true) {
+      setQuantity(1);
+      setReset(false);
+    }
+  }, [reset]);
 
   useEffect(() => {
     getQuantity && getQuantity(quantity);

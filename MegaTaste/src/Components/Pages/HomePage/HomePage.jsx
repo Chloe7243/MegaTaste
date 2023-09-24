@@ -11,7 +11,7 @@ import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 
 import food from "../../../assets/food.png";
 import fchicken from "../../../assets/fried_chicken.png";
-import bq_chicken from "../../../assets/bq_chicken.png";
+import bq_chicken from "../../../assets/BQ_chicken.png";
 import pv_dining from "../../../assets/private-dining-2.jpeg";
 import pv_dining2 from "../../../assets/private-dining-3.jpeg";
 import circ_text from "../../../assets/curved-text.png";

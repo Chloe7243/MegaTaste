@@ -16,6 +16,8 @@ const Size = ({ getSize }) => {
   return (
     <div className={styles.size}>
       <p>Size</p>
+      <div>
+
       <button onClick={makeActive} className={active === 0 && styles.active}>
         Large
       </button>
@@ -25,6 +27,7 @@ const Size = ({ getSize }) => {
       <button onClick={makeActive} className={active === 2 && styles.active}>
         Small
       </button>
+      </div>
     </div>
   );
 };

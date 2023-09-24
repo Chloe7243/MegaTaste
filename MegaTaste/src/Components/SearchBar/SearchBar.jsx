@@ -53,7 +53,6 @@ const SearchBar = () => {
             <Input
               type="search"
               label="Search"
-              maxLength={80}
               value={query}
               onChange={(event) => {
                 setIsLoading(true);

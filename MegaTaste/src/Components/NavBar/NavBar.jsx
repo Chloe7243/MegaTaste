@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
+  PiListLight,
   PiShoppingBagThin,
   PiMagnifyingGlassThin,
   PiMagnifyingGlassLight,
@@ -24,7 +25,11 @@ const NavBar = () => {
   return (
     <Container className={styles.navbar__container}>
       <header className={styles.navbar}>
-        <div className={styles["navbar__mobile"]}></div>
+        <div className={styles["navbar__mobile"]}>
+          <button>
+            <PiListLight />
+          </button>
+        </div>
         <Logo logo={logo} logoName={logoName} color="var(--primary-color)" />
         <nav className={styles["navbar-links"]}>
           <NavLink

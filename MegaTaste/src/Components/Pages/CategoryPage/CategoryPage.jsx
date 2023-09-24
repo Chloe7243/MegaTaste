@@ -51,6 +51,7 @@ const CategoryPage = () => {
       <Banner pageName={categoryName} />
       <Container className={styles["category-products"]} key={1}>
         <div className={styles.filters}>
+          <div className={styles["filter-sort"]}></div>
           <div className={styles.filter}>
             <p>Filter:</p>
             <button onClick={toggleForm}>
@@ -87,7 +88,8 @@ const CategoryPage = () => {
               <option value="p_asc">Price, high to low</option>
               <option value="p_desc">Price, low to high</option>
             </select>
-
+          </div>
+          <div>
             <p>
               {products.length} Product{products.length == 1 ? "" : "s"}
             </p>

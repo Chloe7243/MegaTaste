@@ -23,6 +23,7 @@ const ProductDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [size, getSize] = useState();
   const [quantity, getQuantity] = useState(1);
+  const [reset, setReset] = useState(false);
   const [productDetailsCart, setProductDetailsCart] = useState({});
 
   const ctx = useContext(AppContexts);
@@ -39,7 +40,7 @@ const ProductDetails = () => {
       try {
         console.log("loading");
         const response = await fetch(
-          `https://api.spoonacular.com/food/menuItems/${id}?query&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
+          `https://api.spoonacular.com/food/menuItems/${id}?query&apiKey=0352397aab2844f7b9b8666dc38cce3b`
         );
         console.log(response);
         if (!response.ok) {
@@ -98,11 +99,14 @@ const ProductDetails = () => {
 
   const addToCart = () => {
     const existingProduct = ctx.cartProducts.filter(
-      (obj) => obj.mainId === details.id && obj.size === size
+      (obj) => obj.mainId === details.id && obj.productSize === size
     );
+    console.log(details.id);
+    console.log(existingProduct);
+    console.log(ctx.cartProducts);
 
     if (existingProduct.length != 0) {
-      existingProduct[0].quantity += quantity;
+      existingProduct[0].productQuantity += quantity;
       setProductDetailsCart(existingProduct[0]);
     } else
       setProductDetailsCart({
@@ -114,8 +118,7 @@ const ProductDetails = () => {
         productSize: size,
         productQuantity: quantity,
       });
-
-    getQuantity(1);
+    setReset(true);
   };
 
   useEffect(() => {
@@ -162,7 +165,7 @@ const ProductDetails = () => {
                 <h2>{details.title}</h2>
                 <Price price={details.price || Math.round(details.id / 100)} />
                 <Size getSize={getSize} />
-                <Quantity cartQuantity={quantity} getQuantity={getQuantity}>
+                <Quantity reset={reset} getQuantity={getQuantity} setReset={setReset}>
                   <p>Quantity</p>
                 </Quantity>
                 <Button color="var(--secondary-color)" onClick={addToCart}>

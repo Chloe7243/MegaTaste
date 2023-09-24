@@ -35,35 +35,33 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles["footer-links"]}>
-            <div>
-              <h2>About</h2>
-              <ul>
-                <FooterLink to="/menu">Our Specials</FooterLink>
-                <FooterLink to="/contact">Contact</FooterLink>
-                <FooterLink to="/about">About</FooterLink>
-                <FooterLink>FAQs</FooterLink>
-              </ul>
-            </div>
-            <div>
-              <h2>Menu</h2>
-              <ul>
-                <FooterLink to="/menu/burgers">Burger</FooterLink>
-                <FooterLink to="/menu/cocktails">Cocktails</FooterLink>
-                <FooterLink to="/menu/bbq">Bar & BBQ</FooterLink>
-                <FooterLink to="/menu/steaks">Steaks</FooterLink>
-                <FooterLink to="/menu/chickens">Chicken</FooterLink>
-                <FooterLink to="/menu/desserts">Desserts</FooterLink>
-                <FooterLink onClick={() => navigate("/")} to="#reservations">
-                  Reserve a Table
-                </FooterLink>
-              </ul>
-            </div>
-            <div>
-              <h2>Newsletter</h2> <p>Get recent news and updates</p>{" "}
-              <div className={styles.newsletter}>
-                <Input type="email" label="Email"></Input>
-                <Button color="var(--secondary-color)">Subscribe</Button>
-              </div>
+            <h2>About</h2>
+            <ul>
+              <FooterLink to="/menu">Our Specials</FooterLink>
+              <FooterLink to="/contact">Contact</FooterLink>
+              <FooterLink to="/about">About</FooterLink>
+              <FooterLink>FAQs</FooterLink>
+            </ul>
+          </div>
+          <div className={styles["footer-links"]}>
+            <h2>Menu</h2>
+            <ul>
+              <FooterLink to="/menu/burgers">Burger</FooterLink>
+              <FooterLink to="/menu/cocktails">Cocktails</FooterLink>
+              <FooterLink to="/menu/bbq">Bar & BBQ</FooterLink>
+              <FooterLink to="/menu/steaks">Steaks</FooterLink>
+              <FooterLink to="/menu/chickens">Chicken</FooterLink>
+              <FooterLink to="/menu/desserts">Desserts</FooterLink>
+              <FooterLink onClick={() => navigate("/")} to="#reservations">
+                Reserve a Table
+              </FooterLink>
+            </ul>
+          </div>
+          <div className={styles["footer-links"]}>
+            <h2>Newsletter</h2> <p>Get recent news and updates</p>{" "}
+            <div className={styles.newsletter}>
+              <Input type="email" label="Email"></Input>
+              <Button color="var(--secondary-color)">Subscribe</Button>
             </div>
           </div>
         </div>

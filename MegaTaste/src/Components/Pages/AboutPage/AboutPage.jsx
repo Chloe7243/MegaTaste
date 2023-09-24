@@ -56,7 +56,7 @@ const AboutPage = () => {
                 Savor the art of culinary craftsmanship in every exquisite dish
                 at this restaurant.
               </p>
-                <a href="/menu">View Menu</a>
+              <a href="/menu">View Menu</a>
             </div>
           </div>
           <div>
@@ -67,7 +67,7 @@ const AboutPage = () => {
                 Sip on pure delight as this cocktail weaves together a symphony
                 of flavors that dance on your palate.
               </p>
-                <a href="/menu/cocktails">View Cocktails</a>
+              <a href="/menu/cocktails">View Cocktails</a>
             </div>
           </div>
           <div>
@@ -78,7 +78,9 @@ const AboutPage = () => {
                 Experience the epitome of personalized luxury and intimacy in
                 our exclusive private dining spaces.
               </p>
-                <a onClick={() => navigate("/")} href="#reservations">Reserve a Table</a>
+              <a onClick={() => navigate("/")} href="#reservations">
+                Reserve a Table
+              </a>
             </div>
           </div>
         </div>
@@ -87,8 +89,10 @@ const AboutPage = () => {
         <h2>Restaurant History</h2>
         <div className={styles.histories}>
           <div className={styles.history}>
-            <img src={history1} alt="" />
-            <div>2010</div>
+            <div>
+              <img src={history1} alt="" />
+              <div>2010</div>
+            </div>
             <div className={styles.details}>
               <h4>Founded Idea</h4>
               <p>
@@ -99,8 +103,10 @@ const AboutPage = () => {
             </div>
           </div>
           <div className={styles.history}>
-            <img src={history2} alt="" />
-            <div>2012</div>
+            <div>
+              <img src={history2} alt="" />
+              <div>2012</div>
+            </div>
             <div className={styles.details}>
               <h4>Established Restaurant</h4>
               <p>
@@ -111,8 +117,11 @@ const AboutPage = () => {
             </div>
           </div>
           <div className={styles.history}>
+            <div>
+
             <img src={history3} alt="" />
             <div>2014</div>
+            </div>
             <div className={styles.details}>
               <h4>Integrated Technology</h4>
               <p>
@@ -123,8 +132,10 @@ const AboutPage = () => {
             </div>
           </div>
           <div className={styles.history}>
-            <img src={history4} alt="" />
-            <div>2017</div>
+            <div>
+              <img src={history4} alt="" />
+              <div>2017</div>
+            </div>
             <div className={styles.details}>
               <h4>Established Branches</h4>
               <p>
@@ -136,7 +147,7 @@ const AboutPage = () => {
           </div>
         </div>
       </Container>
-      <Container style={{ padding: "10rem 0" }}>
+      <Container style={{ padding: "10rem 2rem" }}>
         <h2>We Provide best services</h2>
         <div className={styles.services}>
           <div className={styles.a_service}>

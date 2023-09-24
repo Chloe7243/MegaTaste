@@ -2,9 +2,10 @@
   font-size: 1rem;
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   gap: 1rem;
   height: inherit;
-  max-width: 27rem;
+  max-width: 25rem;
   flex: 1 1 auto;
 }
 
@@ -17,3 +18,10 @@
   width: 0.2rem;
   height: 100%;
 }
+
+@media screen and (max-width: 750px) {
+  .app-logo{
+   justify-content: end;
+  }
+}
+

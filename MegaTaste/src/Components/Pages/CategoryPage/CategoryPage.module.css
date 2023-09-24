@@ -34,6 +34,10 @@
   color: #555;
 }
 
+.filters .filter-sort {
+  display: none;
+}
+
 .filters select {
   width: 20rem;
   padding: 0.5rem 1rem;
@@ -112,4 +116,15 @@
 .dropdown div > input:not(:placeholder-shown) ~ label {
   transform: translateY(-120%);
   font-size: 1.6rem;
+}
+
+@media screen and (max-width: 550px) {
+  .filters .filter,
+  .filters .sort {
+    display: none;
+  }
+
+  .filter-sort {
+    display: flex;
+  }
 }

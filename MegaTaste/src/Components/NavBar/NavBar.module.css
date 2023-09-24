@@ -20,9 +20,13 @@
   display: none;
 }
 
+.navbar__mobile button{
+font-size: 4rem;
+}
+
 .navbar-links {
   flex: 1 1 auto;
-  max-width: 75rem;
+  /* max-width: 75rem; */
   display: flex;
   list-style-type: none;
   /* background: #000; */
@@ -31,6 +35,7 @@
   padding: 2rem 0;
   font-size: 2.5rem;
   font-weight: 520;
+  gap: 3rem;
 }
 
 .navbar a {
@@ -43,13 +48,14 @@
   text-decoration: underline;
 }
 
-.navbar-others {
+.navbar-icons {
   /* background: #000; */
   display: flex;
   align-items: center;
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
   justify-content: space-evenly;
   /* background: #000; */
+  width: max-content;
 }
 
 .navbar-icons > button {
@@ -75,13 +81,14 @@
 }
 
 .navbar-icons {
-  justify-content: end;
   display: flex;
   align-items: center;
-  min-width: 30%;
+  justify-content: end;
+  flex: 1 1 auto;
+  /* max-width: 20rem; */
 }
 
-.navbar-icons > button{
+.navbar-icons > button {
   position: relative;
   right: -7%;
   z-index: 2;
@@ -95,7 +102,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   border-radius: 50%;
-  padding: .5rem;
+  padding: 0.5rem;
   position: absolute;
   top: -20%;
   right: 0;
@@ -107,4 +114,27 @@
 
 .reserve {
   width: 30rem;
+}
+
+@media screen and (max-width: 910px) {
+  .reserve {
+    display: none;
+    /* background: #000; */
+  }
+
+  .navbar-icons > button {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar__mobile {
+    display: flex;
+    flex: 1 1 auto;
+    /* background: #000; */
+  }
 }

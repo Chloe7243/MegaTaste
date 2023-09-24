@@ -9,26 +9,32 @@
 .info > div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5rem;
+  flex-wrap: wrap;
 }
 
 .info > div > div {
   /* background: #000; */
+  justify-content: center;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  /* background: #000; */
   /* justify-content: space-evenly; */
+  flex: 1 1 auto;
 }
 
 .info__contact {
-  flex: 1 1 auto;
-  justify-content: space-between;
-  max-width: 40%;
+  gap: 4rem
+  /* justify-content: space-between; */
+  /* max-width: 40%; */
 }
 
 .info__social-media {
-  flex: 1 1 auto;
-  justify-content: space-evenly;
+  gap: 4rem
+  /* flex: 1 1 auto; */
+  /* justify-content: space-evenly; */
 }
 
 .info__account {
@@ -54,4 +60,14 @@
     display: flex;
     align-items: center;
     gap: .5rem;
+}
+
+@media screen and (max-width: 1000px){
+  .info__contact{
+    flex-wrap: inherit;
+    /* flex-direction: column; */
+    /* justify-content: right; */
+    align-items: non;
+    /* align-items: flex-star; */
+  }
 }

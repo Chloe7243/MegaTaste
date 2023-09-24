@@ -1,5 +1,5 @@
 .about__container {
-  padding: 10rem 0 0;
+  padding: 10rem 2rem 0;
 }
 
 .about__container > div > h2 {
@@ -8,7 +8,7 @@
 
 main:has(.about__container) h2 {
   text-align: center;
-  font-size: 7rem;
+  font-size: clamp(5rem, 10vw, 7rem);
   font-weight: 600;
   position: relative;
   text-transform: capitalize;
@@ -47,6 +47,21 @@ main:has(.about__container) h2::after {
 .service > div:nth-child(2) {
   background: url(../../../assets/cocktail.png) no-repeat center;
   background-size: cover;
+  transform: translateY(10rem);
+}
+
+@media screen and (max-width: 900px) {
+  .service {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service > div {
+    width: min(60rem, 100%);
+  }
+  .service > div:nth-child(2) {
+    transform: none;
+  }
 }
 
 .service > div {
@@ -72,10 +87,6 @@ main:has(.about__container) h2::after {
   border-radius: 4rem;
   font-weight: 600;
   font-size: 3rem;
-}
-
-.service > div:nth-child(2) {
-  transform: translateY(10rem);
 }
 
 .service > div:hover .hover-content {
@@ -128,29 +139,50 @@ main:has(.about__container) h2::after {
 .histories {
   padding: 5rem 0;
   display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 1rem;
-  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(50rem, 100%), 1fr));
+  gap: 3rem;
 }
 
 .history {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  /* background: #000; */
+  justify-content: center;
+  column-gap: 8rem;
+  flex-wrap: wrap;
+
 }
 
-.history > img + div {
+.history > div {
+  position: relative;
+  justify-self: left;
+}
+
+.history > div:last-of-type {
+  width: min(30rem, 100%);
+}
+
+/* .history > div  */
+
+.history > div > div:first-of-type {
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translateY(-50%);
   background: var(--secondary-color);
   font-weight: 600;
   font-size: 2.5rem;
   color: white;
   padding: 4rem;
   border-radius: 50%;
-  margin-left: -13rem;
 }
 
 .history img {
+  justify-self: left;
+  align-self: flex-start;
   min-width: 34rem;
   height: 18rem;
   border-radius: 19rem;
@@ -168,6 +200,8 @@ main:has(.about__container) h2::after {
   display: flex;
   text-align: center;
   gap: 2rem;
+  flex-wrap: wrap;
+  /* padding: 0 2rem; */
 }
 
 div:has(.services) > h2,
@@ -181,6 +215,7 @@ div:has(.histories) > h2 {
 }
 
 .a_service {
+  flex: 1 1 22%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,12 +223,14 @@ div:has(.histories) > h2 {
 }
 
 .a_service div {
-  width: 50%;
+  width: 20rem;
+  aspect-ratio: 1.5;
   padding: 3rem;
   border-radius: 50%;
   background: var(--primary-color);
   outline: 0.5rem solid white;
   outline-offset: -1rem;
+  flex: 0 1;
 }
 
 .a_service div:hover img {
@@ -285,6 +322,12 @@ div:has(.histories) > h2 {
   display: flex;
   gap: 1rem;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 786px) {
+  .feedback-images {
+    display: none;
+  }
 }
 
 .feedback-images img {

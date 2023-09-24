@@ -28,8 +28,7 @@
 }
 .hero_4 > div {
   height: 100%;
-  /* background-color: aqua; */
-  background: url(../../../assets/hero-5.webp) no-repeat top;
+  /* background: url(../../../assets/hero-5.webp) no-repeat top; */
   background-size: cover;
 }
 .hero_5 {
@@ -39,9 +38,10 @@
 .hero {
   background-size: cover;
   height: 100%;
+  padding: clamp(2rem, 10vw, 10rem);
 }
 
-.carousel .hero > div{
+.carousel .hero > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,21 +68,22 @@
 }
 
 .carousel .hero h2 {
-  font-size: 10rem;
+  font-size: clamp(5rem, 10vw, 10rem);
   line-height: 9rem;
-  max-width: 60%;
+  width: min(70rem, 100%);
 }
 
 .carousel .hero p {
-  max-width: 40%;
+  width: min(70rem, 100%);
+  /* max-width: 40%; */
   font-weight: 500;
-  font-size: 4rem;
+  font-size: clamp(1rem, 50vw, 4rem);
   letter-spacing: 0.1rem;
 }
 
 .carousel .hero h2 span {
   color: var(--primary-color);
-  font-size: 12rem;
+  font-size: clamp(7rem, 10vw, 12rem);
   display: block;
 }
 
@@ -145,6 +146,7 @@
   border-radius: inherit;
 }
 
+
 .carousel :global(.slick-prev),
 .carousel :global(.slick-next) {
   z-index: 1;
@@ -159,6 +161,8 @@
 .carousel :global(.slick-next) {
   right: 3% !important;
 }
+
+
 
 .controls {
   position: absolute;
@@ -193,20 +197,27 @@
   scale: 1.1;
 }
 
+@media screen and (max-width: 800px) {
+  .controls {
+    display: none;
+  }
+}
+
+
 .welcome__container {
-  padding: 10rem 0 5rem;
+  padding: 10rem 2rem 5rem;
 }
 
 .welcome__container > div {
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 3rem;
   /* align-items: center; */
 }
 
 .welcome__container h2 {
-  font-size: 8rem;
+  font-size: clamp(4rem, 5vw, 8rem);
   font-weight: 600;
   text-transform: capitalize;
 }
@@ -225,8 +236,28 @@
 }
 
 .welcome__container > div > div > img {
-  width: 40rem;
+  flex: 0 1 auto;
+  /* max-width: 40rem; */
   border-radius: 4rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome__container > div {
+    flex-direction: column-reverse;
+  }
+
+  .welcome__container > div > div:last-of-type,
+  .welcome__container .c-text {
+    display: none;
+  }
+
+  .welcome__container {
+    /* padding: 10rem; */
+  }
+
+  .welcome__container img {
+    width: 100%;
+  }
 }
 
 .c-text {
@@ -259,7 +290,7 @@
 }
 
 .benefits__container {
-  padding: 10rem 0;
+  padding: 10rem 2rem;
 }
 
 .benefits__container > div {
@@ -267,6 +298,13 @@
   justify-content: space-between;
   align-items: center;
   gap: 5rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 635px) {
+  .benefits__container > div {
+    text-align: center;
+  }
 }
 
 .benefits__container > div > * {
@@ -278,16 +316,17 @@
 }
 
 .benefits__container img {
-  width: 45rem;
+  width: min(40rem, 100%);
 }
 
 .benefits__container ul {
   color: #555;
-  font-size: 2.7rem;
+  font-size: 3.5rem;
   font-weight: 600;
   list-style-image: url("../../../assets/check.png");
   list-style-position: inside;
   margin-bottom: 3rem;
+  min-width: min(56rem, 100%);
 }
 
 .reservations__container {
@@ -300,8 +339,14 @@
   display: flex;
   gap: 5rem;
   background: url(../../../assets/patron.jpg);
-  padding: 10rem;
+  padding: clamp(5rem, 7vw, 9rem);
   border-radius: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .reservations__container > div {
+    flex-wrap: wrap;
+  }
 }
 
 .reservations__container h2 {
@@ -313,7 +358,6 @@
 }
 
 .reservations__container form {
-  scroll-padding-top: 10rem;
   background: none;
   padding: 0;
   width: 100%;
@@ -328,16 +372,29 @@
   font-size: 1.9rem;
   border: none;
   outline: none;
+  flex: 1 1 auto;
 }
 
 .reservations__container form div:has(input, select) {
   display: flex;
   gap: 2rem;
   width: 100%;
+  /* flex-wrap: wrap; */
 }
 
-form div:has(button) {
-  max-width: 35rem;
+@media screen and (max-width: 668px) {
+  .reservations__container form > div {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .reservations__container form > div > div {
+    flex-wrap: wrap;
+  }
+}
+
+.reservations__container form div:has(button) {
   margin: 0 !important;
   align-self: flex-end;
 }

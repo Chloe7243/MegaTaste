@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 const AppContexts = React.createContext();
 
 export const AppProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState([]);
-  const [cartIsOpen, setCartVisibilityState] = useState(false);
-  const [searchFieldIsOpen, setSearchFieldVisibilityState] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
+  const [cartProducts, setCartProducts] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
+  const [cartIsOpen, setCartVisibilityState] = useState(false);
+  const [showMobileNavbar, setShowMobileNavbar] = useState(false);
+  const [searchFieldIsOpen, setSearchFieldVisibilityState] = useState(false);
   
   const deleteCartProduct = (id) => {
     const currentItems = cartProducts;
@@ -27,16 +28,18 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContexts.Provider
       value={{
-        cartProducts,
-        setCartProducts,
-        cartIsOpen,
-        setCartVisibilityState,
-        searchFieldIsOpen,
-        setSearchFieldVisibilityState,
-        searchResult,
-        setSearchResult,
-        deleteCartProduct,
         subtotal,
+        cartIsOpen,
+        cartProducts,
+        searchResult,
+        showMobileNavbar,
+        searchFieldIsOpen,
+        setSearchResult,
+        setCartProducts,
+        deleteCartProduct,
+        setShowMobileNavbar,
+        setCartVisibilityState,
+        setSearchFieldVisibilityState,
       }}
     >
       {children}

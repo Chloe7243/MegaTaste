@@ -39,6 +39,10 @@ const categories = [
     img: "https://home-market-4.myshopify.com/cdn/shop/products/chiken-4.png",
   },
   {
+    name: "Steak",
+    img: "https://home-market-4.myshopify.com/cdn/shop/products/chiken-4.png",
+  },
+  {
     name: "Soup",
     img: "https://www.corriecooks.com/wp-content/uploads/2018/09/vegetable-noodle-soup.jpg",
   },
@@ -65,9 +69,6 @@ const AllCategories = () => {
       <Container className={styles.categories__container}>
         <h1>Choose a Category</h1>
         <div className={styles["all-categories"]}>
-          {categories.map((category) => (
-            <Category img={category.img} name={category.name} />
-          ))}
           <div className={styles.openings}>
             <h3>Opening Times</h3>
             <table>
@@ -104,6 +105,9 @@ const AllCategories = () => {
               <p>No 96, 3rd Avenue, Gwarimpa Abuja</p>
             </span>
           </div>
+          {categories.map((category) => (
+            <Category img={category.img} name={category.name} />
+          ))}
         </div>
       </Container>
       <div className={styles.test}>
@@ -150,7 +154,7 @@ const AllCategories = () => {
               autoPlay
               controls
               onEnded={() => {
-                setTimeout(() => setPlayVideo(false), 2000);
+                setTimeout(() => setPlayVideo(false), 300);
               }}
               src={vid}
             />

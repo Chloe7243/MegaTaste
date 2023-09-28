@@ -27,7 +27,8 @@ main:has(.about__container) h2::after {
 }
 
 .about__container > div > p {
-  font-size: 3rem;
+  text-align: center;
+  font-size: clamp(1rem, 4vw, 3rem);
   margin: auto;
   padding: 2rem 0;
 }
@@ -35,19 +36,9 @@ main:has(.about__container) h2::after {
 .service {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 3rem;
   padding: 5rem 0 20rem;
-}
-
-.service > div:first-child {
-  background: url(../../../assets/steak.png) no-repeat center;
-  background-size: cover;
-}
-
-.service > div:nth-child(2) {
-  background: url(../../../assets/cocktail.png) no-repeat center;
-  background-size: cover;
-  transform: translateY(10rem);
 }
 
 @media screen and (max-width: 900px) {
@@ -72,11 +63,24 @@ main:has(.about__container) h2::after {
   background-size: cover;
   outline: 0.5rem solid var(--primary-color);
   outline-offset: -3.5rem;
-  min-height: 60rem;
+  max-height: 80rem;
+  min-width: min(47rem, 100%);
+  aspect-ratio: .7;
   display: flex;
   justify-content: center;
   border-radius: 5rem 5rem 7rem 7rem;
   padding: 3rem;
+  /* width: 100%; */
+}
+
+.service > div:first-child {
+  background: url(../../../assets/steak.png) no-repeat center;
+  background-size: cover;
+}
+
+.service > div:nth-child(2) {
+  background: url(../../../assets/cocktail.png) no-repeat center;
+  background-size: cover;
 }
 
 .service > div > p {
@@ -97,7 +101,9 @@ main:has(.about__container) h2::after {
 
 .service .hover-content {
   color: white;
-  font-size: 2.5rem;
+  gap: 3rem;
+  overflow-y: auto;
+  font-size: 3rem;
   position: absolute;
   background: var(--secondary-color);
   width: 100%;
@@ -106,16 +112,16 @@ main:has(.about__container) h2::after {
   border-radius: inherit;
   display: flex;
   flex-direction: column;
-  padding: inherit;
   justify-content: space-evenly;
   align-items: center;
   scale: 0.3;
   transform: rotateY(-90deg);
   transition: scale 500ms ease-in-out, transform, 500ms ease-in-out;
+  padding: clamp(1rem, 5vw, 7rem);
 }
 
 .hover-content h3 {
-  font-size: 5rem;
+  font-size: 7rem;
 }
 
 .hover-content a {
@@ -129,7 +135,7 @@ main:has(.about__container) h2::after {
   border-radius: 1.5rem;
   color: black;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .hover-content a:hover {
@@ -139,8 +145,8 @@ main:has(.about__container) h2::after {
 .histories {
   padding: 5rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(50rem, 100%), 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
+  gap: 5rem;
 }
 
 .history {
@@ -149,7 +155,6 @@ main:has(.about__container) h2::after {
   justify-content: center;
   column-gap: 8rem;
   flex-wrap: wrap;
-
 }
 
 .history > div {
@@ -170,7 +175,7 @@ main:has(.about__container) h2::after {
   align-items: center;
   position: absolute;
   top: 50%;
-  right: -10%;
+  right: -5%;
   transform: translateY(-50%);
   background: var(--secondary-color);
   font-weight: 600;

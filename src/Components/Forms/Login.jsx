@@ -57,7 +57,7 @@ const Login = () => {
   return (
     <>
       <Banner pageName="Login" />
-      <Form onSubmit={formSubmitHandler} key={1} style={{ padding: "10rem 0" }}>
+      <Form onSubmit={formSubmitHandler} key={1} style={{ padding: "10rem 2rem 0" }}>
         <h2>Login</h2>
         <div>
           <input

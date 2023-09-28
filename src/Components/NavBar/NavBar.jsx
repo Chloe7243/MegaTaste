@@ -1,8 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
+  PiXThin,
   PiListLight,
-  PiShoppingBagThin,
-  PiMagnifyingGlassThin,
   PiMagnifyingGlassLight,
   PiShoppingCartSimpleThin,
 } from "react-icons/pi";
@@ -13,21 +12,22 @@ import logo from "../../assets/logo.png";
 import Button from "../UI/Button/Button";
 import logoName from "../../assets/logo_name.png";
 import Container from "../UI/Container/Container";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContexts from "../../contexts/app-contexts";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const ctx = useContext(AppContexts);
   const openCart = () => ctx.setCartVisibilityState(true);
+  const toggleNavbar = () => ctx.setShowMobileNavbar(prev => !prev);
   const openSearchField = () => ctx.setSearchFieldVisibilityState(true);
-
+  
   return (
     <Container className={styles.navbar__container}>
       <header className={styles.navbar}>
         <div className={styles["navbar__mobile"]}>
-          <button>
-            <PiListLight />
+          <button onClick={toggleNavbar}>
+            {ctx.showMobileNavbar ? <PiXThin/> : <PiListLight />}
           </button>
         </div>
         <Logo logo={logo} logoName={logoName} color="var(--primary-color)" />

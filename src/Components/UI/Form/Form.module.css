@@ -4,7 +4,7 @@
   flex-direction: column;
   background: url("../../../assets/patron.jpg");
   height: max-content;
-  width: 55rem;
+  width: min(55rem, 100%);
   padding: 3.5rem;
   border-radius: 2.5rem;
   color: var(--light-color);

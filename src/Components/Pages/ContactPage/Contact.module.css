@@ -1,15 +1,16 @@
 .contact__container {
-  padding: 8rem 0;
+  padding: 8rem 2rem;
 }
 
 .contact__container > div {
   display: flex;
   gap: 5rem;
-  align-items: baseline;
+  flex-wrap: wrap;
 }
 
 .contact__container > div > div {
   flex: 1;
+  min-width: min(45rem, 100%);
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
@@ -34,11 +35,12 @@
 .contact-details {
   display: flex;
   gap: 4rem;
+  flex-wrap: wrap;
 }
 
 .contact-details > div {
-  flex: 1;
-  height: 27rem;
+  width: min(30rem, 100%);
+  flex: 1 0 auto;
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
@@ -100,10 +102,12 @@
   flex-direction: column;
   gap: 4rem;
 }
+
 .contact-form input {
   border: 0.5rem solid #d6deec;
   border-radius: 1.5rem;
   outline: none;
+  min-width: 30rem;
 }
 
 .contact-form input:focus {
@@ -114,6 +118,7 @@
   display: flex;
   gap: 2rem;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .contact-form > div:first-of-type > div {

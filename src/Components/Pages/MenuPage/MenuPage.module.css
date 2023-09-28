@@ -1,5 +1,5 @@
 .categories__container {
-  padding: 10rem 0;
+  padding: 10rem 2rem;
 }
 
 * > h1 {
@@ -23,17 +23,22 @@
 .all-categories {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  flex-wrap: wrap;
-  /* justify-content: space-evenly; */
-  gap: 3rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(clamp(20rem, 35%, 40rem), 100%), 1fr)
+  );
+  gap: 2rem;
+  row-gap: 3rem;
   padding: 4rem 0;
+  /* justify-content: center; */
+  justify-items: center;
 }
 
-.all-categories > a, .all-categories > div {
-  min-height: 23rem;
-  border: 0.5rem solid var(--primary-color);
-  width: 40rem;
+.all-categories > a,
+.all-categories > div {
+  aspect-ratio: 0.8;
+  border: 0.7rem solid var(--primary-color);
+  max-width: 45rem;
   padding: 2rem;
   border-radius: 2rem;
 }
@@ -42,14 +47,30 @@
   border-color: var(--secondary-color);
 }
 
+.all-categories > a > img {
+  width: 100%;
+  background: #000;
+}
+
 .openings {
   background-color: var(--primary-color);
   display: flex;
   flex-direction: column;
-  grid-row: 1/2;
-  grid-column: 2/3;
+  justify-content: space-between;
   position: relative;
   gap: 1rem;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 375px) and (max-width: 670px) {
+  .openings {
+    grid-column-start: span 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .openings {
+    grid-area: 1/2/2/3;
+  }
 }
 
 .openings > p {
@@ -83,7 +104,8 @@
 
 .test:has(video) > div > div {
   max-width: none;
-  padding: 0 15rem;
+  padding-left: clamp(0, 5%, 10rem);
+  padding-right: clamp(0, 5%, 10rem);
 }
 
 .outer {
@@ -97,7 +119,7 @@
 
 .how-we-work {
   color: white;
-  padding: 12rem 0;
+  padding: 12rem 2rem;
 }
 
 .how-we-work h1 {
@@ -107,6 +129,7 @@
 .how-we-work h1::after {
   content: none;
 }
+
 .how-we-work > div {
   align-items: center;
   display: flex;
@@ -118,6 +141,11 @@
   display: flex;
   justify-content: space-between;
   gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.how-we-work article {
+  flex: 1 1;
 }
 
 .how-we-work > div > div p {
@@ -167,11 +195,11 @@ article:nth-child(3) .step img {
   top: 10%;
 }
 
-article:nth-child(2) .step::before{
+article:nth-child(2) .step::before {
   content: "2";
 }
 
-article:nth-child(3) .step::before{
+article:nth-child(3) .step::before {
   content: "3";
 }
 
@@ -180,21 +208,21 @@ article:nth-child(3) .step::before{
   display: flex;
   background: url("../../../assets/easy-orded.jpg") no-repeat;
   background-size: cover;
-  min-width: 50rem;
-  min-height: 50rem;
+  min-width: min(50rem, 100%);
+  aspect-ratio: 1;
   border-radius: 50%;
   position: relative;
+  /* max-height: 50rem; */
 }
 
-.video img{
+.video img {
   position: absolute;
   top: 20%;
   left: -35%;
   scale: 1.2;
-
 }
 
-.video::before{
+.video::before {
   content: "Watch and Follow";
   position: absolute;
   top: 10%;
@@ -205,10 +233,25 @@ article:nth-child(3) .step::before{
 video {
   width: 50%;
   /* width: 75rem; */
-  height: 50rem;
+  aspect-ratio: 1;
   background: #000;
   border-radius: 2rem;
   /* transform: translateX(10%); */
+}
+
+@media screen and (max-width: 927px) {
+  .how-we-work > div {
+    flex-direction: column;
+  }
+
+  .outer {
+    border-top-right-radius: 0;
+  }
+
+  .outer,
+  video {
+    width: 100%;
+  }
 }
 
 .video button {
@@ -229,7 +272,7 @@ video {
 }
 
 .deal__container {
-  padding: 10rem 0;
+  padding: 10rem 2rem;
 }
 
 .deal {
@@ -240,24 +283,28 @@ video {
   padding: 5rem 0;
 }
 
-
 .deal > div {
   display: flex;
   flex-direction: column;
 }
 
-.time {
+.deal .time {
   gap: 0.5rem;
   font-size: 2.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
   /* justify-content: space-between; */
 }
+
 .time > span {
+  flex: 0 1 auto;
   line-height: 2.7rem;
   border-radius: 4rem;
   padding: 3rem;
   text-align: center;
   font-weight: 700;
   background: var(--primary-color);
+  width: min(12rem, 100%);
 }
 
 .percentage {
@@ -273,24 +320,24 @@ video {
   justify-content: space-between;
   /* background: #000; */
   /* background: #000; */
-  width: 80%;
-  gap: 1.5rem;
+  /* width: 80%; */
+  /* gap: 1.5rem; */
 }
 
 .details h2 {
   font-weight: 550;
-  font-size: 5rem;
+  font-size: 7rem;
 }
 
 .details > div > p {
   font-weight: 600;
   color: #555;
-  font-size: 1.5rem;
+  font-size:2rem;
   /* background: #000; */
 }
 
 .details > div:last-of-type {
-  max-width: 35rem;
+  max-width: 50rem;
   margin-top: 1rem;
 }
 
@@ -300,7 +347,7 @@ video {
 
 .details > div:last-of-type button {
   font-weight: 500;
-  font-size: 1.7rem;
+  font-size: 2.2rem;
   color: white;
   right: 15%;
 }
@@ -313,4 +360,21 @@ video {
   font-weight: 600;
   color: #555;
   gap: 1rem;
+  font-size: 3rem;
+}
+
+.deal img {
+  width: clamp(min(50rem, 100%), 1%, 70rem);
+  aspect-ratio: 0.9;
+  align-self: center;
+}
+
+@media screen and (max-width: 950px) {
+  .deal {
+    flex-direction: column-reverse;
+  }
+
+  .deal .time {
+    flex-direction: row;
+  }
 }

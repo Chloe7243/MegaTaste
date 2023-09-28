@@ -1,0 +1,49 @@
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  height: calc(100vh - 12rem);
+  z-index: 80;
+  width: min(50rem, 100%);
+  background: white;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-links a {
+  padding: 2rem;
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.mobile-links a:hover {
+  background: #12121215;
+}
+
+.mobile-links a.active {
+  background: #12121215;
+}
+
+.mobile-nav > div {
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 2rem;
+}
+
+.mobile-nav > div p + p {
+  margin-top: 2rem;
+}
+
+.mobile-nav .social-media {
+  font-size: 3rem;
+}
+
+.social-media span + span {
+  margin-left: 1rem;
+}

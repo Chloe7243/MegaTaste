@@ -70,7 +70,7 @@ const Register = () => {
   return (
     <>
       <Banner pageName="Create account" />
-      <Form onSubmit={formSubmitHandler} key={0} style={{ margin: "7rem 0" }}>
+      <Form onSubmit={formSubmitHandler} key={0} style={{ padding: "10rem 2rem 0" }}>
         <h2>Create account</h2>
         <div>
           <input

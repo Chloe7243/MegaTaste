@@ -15,6 +15,7 @@
   font-size: 6rem;
   margin-bottom: 1rem;
   text-transform: capitalize;
+  text-align: left !important;
 }
 
 .banner__container h2::after{

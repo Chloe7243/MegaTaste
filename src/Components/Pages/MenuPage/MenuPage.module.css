@@ -300,11 +300,11 @@ video {
   flex: 0 1 auto;
   line-height: 2.7rem;
   border-radius: 4rem;
-  padding: 3rem;
+  padding: 3rem 2rem;
   text-align: center;
   font-weight: 700;
   background: var(--primary-color);
-  width: min(12rem, 100%);
+  width: clamp(10rem, 20%, 12rem);
 }
 
 .percentage {

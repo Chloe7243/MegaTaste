@@ -2,7 +2,8 @@
   z-index: 5;
   background: var(--light-color);
   position: sticky;
-  top: -0.5rem;
+  position: -webkit-sticky;
+  top: 0;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 

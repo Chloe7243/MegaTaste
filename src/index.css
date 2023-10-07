@@ -3,10 +3,23 @@
   line-height: 1.5;
   font-weight: 400;
   background: white;
-  color: black;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+*[x-apple-data-detectors],  /* iOS */
+    .x-gmail-data-detectors,    /* Gmail */
+    .x-gmail-data-detectors *,
+    .aBn {
+  border-bottom: 0 !important;
+  cursor: default !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }

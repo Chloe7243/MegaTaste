@@ -90,15 +90,15 @@ const HomePage = () => {
 
       <Container className={styles.welcome__container}>
         <div>
-          <img src={pv_dining} alt="" />
           <div className={styles["c-text"]}>
             <img src={circ_text} alt="" />
             <img src={bq_chicken} alt="" />
           </div>
+          <img src={pv_dining} alt="" />
         </div>
         <div>
           <h3>Welcome to MegaTaste</h3>
-          <h2>Feel the taste of foods</h2>
+          {/* <h2>Feel the taste of foods</h2> */}
           <p>
             Discover a culinary haven where exceptional food meets exclusive
             private dining. Our restaurant offers a seamless fusion of
@@ -106,7 +106,7 @@ const HomePage = () => {
             private dining spaces for any occasion. Immerse yourself in a
             symphony of flavors, surrounded by an ambiance that exudes warmth
             and comfort. Elevate your dining experience with us, where every
-            bite and moment is designed to be truly unforgettable.{" "}
+            bite and moment is designed to be truly unforgettable.
           </p>
         </div>
         <div>

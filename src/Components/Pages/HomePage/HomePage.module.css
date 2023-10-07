@@ -228,6 +228,11 @@
   text-transform: uppercase;
 }
 
+.welcome__container p {
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
 .welcome__container > div > div {
   display: flex;
   flex-direction: column;
@@ -249,10 +254,6 @@
   .welcome__container > div > div:last-of-type,
   .welcome__container .c-text {
     display: none;
-  }
-
-  .welcome__container {
-    /* padding: 10rem; */
   }
 
   .welcome__container img {

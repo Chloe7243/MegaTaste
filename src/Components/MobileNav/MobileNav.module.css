@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  height: calc(100vh - 20rem);
+  height: calc(100svh - 12rem);
   z-index: 80;
   width: min(50rem, 100%);
   background: white;

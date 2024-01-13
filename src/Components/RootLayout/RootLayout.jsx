@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/SearchBar";
 import MobileNav from "../MobileNav/MobileNav";
+import { Toaster } from "react-hot-toast";
 
 const RootLayout = () => {
   return (
@@ -19,6 +20,7 @@ const RootLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <Toaster/>
     </div>
   );
 };

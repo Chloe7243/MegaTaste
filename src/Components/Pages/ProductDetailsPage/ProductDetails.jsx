@@ -14,6 +14,7 @@ import { useContext, useEffect, useState } from "react";
 import Product from "../../Product/Product";
 import AppContexts from "../../../contexts/app-contexts";
 import { PiCaretDownLight, PiCaretUpLight } from "react-icons/pi";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const [error, setError] = useState(null);
@@ -32,6 +33,8 @@ const ProductDetails = () => {
     setShowText((prev) => !prev);
   };
 
+  console.log({ productDetailsCart });
+
   const id = useParams().id;
 
   useEffect(() => {
@@ -47,7 +50,6 @@ const ProductDetails = () => {
           throw new Error("Something went wrong!");
         }
         const data = await response.json();
-        console.log(data);
         setDetails(data);
       } catch (err) {
         setError(err.message);
@@ -98,32 +100,32 @@ const ProductDetails = () => {
   ];
 
   const addToCart = () => {
-    const existingProduct = ctx.cartProducts.filter(
-      (obj) => obj.mainId === details.id && obj.productSize === size
-    );
-    console.log(details.id);
-    console.log(existingProduct);
-    console.log(ctx.cartProducts);
-
-    if (existingProduct.length != 0) {
-      existingProduct[0].productQuantity += quantity;
-      setProductDetailsCart(existingProduct[0]);
-    } else
-      setProductDetailsCart({
-        mainId: details.id,
-        productId: ctx.cartProducts.length,
-        productImage: details.image,
-        productName: details.title,
-        productPrice: Math.round(details.id / 100),
-        productSize: size,
-        productQuantity: quantity,
-      });
+    setProductDetailsCart({
+      mainId: details.id,
+      productId: details.id + size[0],
+      productImage: details.image,
+      productName: details.title,
+      productPrice: Math.round(details.id / 100),
+      productSize: size,
+      productQuantity: quantity,
+    });
     setReset(true);
+    toast.success("Item added to cart");
   };
 
   useEffect(() => {
-    Object.keys(productDetailsCart).length &&
-      ctx.setCartProducts((prev) => [productDetailsCart, ...prev]);
+    if (Object.keys(productDetailsCart).length) {
+      const existingProduct = ctx.cartProducts.find(
+        (obj) => obj.mainId === details.id && obj.productSize === size
+      );
+      if (existingProduct) {
+        existingProduct.productQuantity += quantity;
+        ctx.setCartProducts((prev) => [
+          existingProduct,
+          ...prev.filter((obj) => obj.mainId != details.id),
+        ]);
+      } else ctx.setCartProducts((prev) => [productDetailsCart, ...prev]);
+    }
   }, [productDetailsCart]);
 
   const settings = {
@@ -165,7 +167,11 @@ const ProductDetails = () => {
                 <h2>{details.title}</h2>
                 <Price price={details.price || Math.round(details.id / 100)} />
                 <Size getSize={getSize} />
-                <Quantity reset={reset} getQuantity={getQuantity} setReset={setReset}>
+                <Quantity
+                  reset={reset}
+                  getQuantity={getQuantity}
+                  setReset={setReset}
+                >
                   <p>Quantity</p>
                 </Quantity>
                 <Button color="var(--secondary-color)" onClick={addToCart}>
@@ -196,14 +202,6 @@ const ProductDetails = () => {
                     </p>
                   )}
                 </div>
-              </div>
-            </div>
-            <div className={styles["related"]}>
-              <h3>You may also like</h3>
-              <div>
-                {products.map((productDetails, idx) => (
-                  <Product product={productDetails} key={idx} />
-                ))}
               </div>
             </div>
           </>

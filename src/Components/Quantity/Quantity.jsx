@@ -6,7 +6,6 @@ const Quantity = ({ cartQuantity, getQuantity, children, reset, setReset }) => {
     cartQuantity ? Number(cartQuantity) : 1
   );
 
-
   useEffect(() => {
     if (reset === true) {
       setQuantity(1);

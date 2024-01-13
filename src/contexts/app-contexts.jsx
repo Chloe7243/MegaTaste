@@ -13,17 +13,10 @@ export const AppProvider = ({ children }) => {
   const deleteCartProduct = (id) => {
     const currentItems = cartProducts;
     const searchResult = currentItems.filter((obj) => obj.productId != id);
-    console.log(searchResult);
     setCartProducts(searchResult);
   };
 
   useEffect(() => {
-    console.log(
-      cartProducts.reduce(
-        (total, obj) => total + obj.productPrice * obj.productQuantity,
-        0
-      )
-    );
     setSubtotal(
       cartProducts.reduce(
         (total, obj) => total + obj.productPrice * obj.productQuantity,

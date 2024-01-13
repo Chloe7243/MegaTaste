@@ -19,7 +19,6 @@ const SearchBar = () => {
       const response = await fetch(
         `https://api.spoonacular.com/food/search?query=${query}&number=30&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
       );
-      console.log(response);
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
@@ -27,7 +26,6 @@ const SearchBar = () => {
       const dataObj = data.searchResults.filter(
         (obj) => obj.name === "Menu Items"
       );
-      console.log(dataObj);
       ctx.setSearchResult(dataObj[0].results);
     } catch (error) {
       setError(error.message);

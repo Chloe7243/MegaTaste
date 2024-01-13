@@ -33,19 +33,15 @@ const ProductDetails = () => {
     setShowText((prev) => !prev);
   };
 
-  console.log({ productDetailsCart });
-
   const id = useParams().id;
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
       try {
-        console.log("loading");
         const response = await fetch(
           `https://api.spoonacular.com/food/menuItems/${id}?query&apiKey=0352397aab2844f7b9b8666dc38cce3b`
         );
-        console.log(response);
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }

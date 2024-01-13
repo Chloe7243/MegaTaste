@@ -15,7 +15,6 @@ const CategoryPage = () => {
 
   const sortProducts = (event) => {
     const sortMethod = event.target.value;
-    console.log(sortMethod);
     sortBy(sortMethod);
   };
 
@@ -28,12 +27,10 @@ const CategoryPage = () => {
         const response = await fetch(
           `https://api.spoonacular.com/food/menuItems/search?query=${categoryName}&number=100&cuisine=american&apiKey=58b794d21aef49a1924adbbc5aef7cc5`
         );
-        console.log(response);
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }
         const data = await response.json();
-        console.log(data);
         setProducts(data.menuItems);
       } catch (err) {
         setError(err.message);

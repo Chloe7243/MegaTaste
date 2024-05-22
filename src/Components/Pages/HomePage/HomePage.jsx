@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./HomePage.module.css";
-import Form from "../../UI/Form/Form";
+import Form from "../../Form";
 import Input from "../../UI/Input/Input";
 import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 

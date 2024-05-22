@@ -1,5 +1,4 @@
-import Container from "../Container/Container";
-import styles from "./Form.module.css";
+import Container from "./UI/Container/Container";
 const Form = ({
   containerClasname,
   children,
@@ -7,16 +6,18 @@ const Form = ({
   action,
   method,
   style,
+  formStyle,
   id,
 }) => {
   return (
     <Container className={containerClasname} style={style} id={id}>
       {id && <h2>Reserve a table</h2>}
       <form
-        className={styles.form}
+        className={"form"}
         action={action}
         method={method}
         onSubmit={onSubmit}
+        style={formStyle}
       >
         {children}
       </form>

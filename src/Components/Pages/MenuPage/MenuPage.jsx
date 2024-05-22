@@ -105,8 +105,8 @@ const AllCategories = () => {
               <p>No 96, 3rd Avenue, Gwarimpa Abuja</p>
             </span>
           </div>
-          {categories.map((category) => (
-            <Category img={category.img} name={category.name} />
+          {categories.map((category, i) => (
+            <Category img={category.img} name={category.name} key={i} />
           ))}
         </div>
       </Container>
@@ -160,9 +160,13 @@ const AllCategories = () => {
             />
           )) || (
             <div className={styles.video}>
-              <button onClick={() => setPlayVideo(true)}>
+              <a
+                href="https://www.youtube.com/watch?v=HfpDl4R-n7g"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaPlay />
-              </button>
+              </a>
               <img src={arrow} alt="" />
             </div>
           )}

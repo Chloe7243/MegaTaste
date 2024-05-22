@@ -25,7 +25,8 @@ body {
   overflow-x: hidden;
 }
 
-body:has(.overlay), html:has(.overlay) {
+body:has(.overlay),
+html:has(.overlay) {
   overflow-y: hidden;
 }
 
@@ -67,4 +68,138 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: url("assets/patron.jpg");
+  height: max-content;
+  width: min(55rem, 100%);
+  padding: 3.5rem;
+  border-radius: 2.5rem;
+  color: var(--light-color);
+  justify-content: space-evenly;
+  gap: 3rem;
+  margin: auto;
+}
+
+.form > .inputs {
+  width: 100%;
+}
+
+.form > .inputs > div {
+  position: relative;
+  margin: auto;
+  width: 100%;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem 2rem 1.5rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+  font-size: 2.2rem;
+}
+
+.form > .inputs > div:has(.eye) > input {
+  padding-right: 5rem;
+}
+
+.form > .inputs > div > .eye {
+  position: absolute;
+  right: 1.5rem;
+  cursor: pointer;
+  transform: translateY(75%);
+  color: black;
+}
+
+.form > .inputs > div > p {
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.form > .inputs > div > p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.form > .inputs > div:not(:has(p)) {
+  margin-bottom: 2.8rem;
+}
+
+.form > .inputs > div:has(p) > label {
+  transform: translateY(-100%);
+}
+
+.form > .inputs > div:has(p + p) > label {
+  transform: translateY(-140%);
+}
+
+input:focus {
+  outline: 1px solid black;
+  outline-offset: -5px;
+}
+
+.form input:focus ~ label,
+.form select:focus ~ label,
+.form input:not(:placeholder-shown) ~ label,
+.form select:not(:placeholder-shown) ~ label {
+  transform: translateY(-150%) !important;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.form > .inputs > div:has(p) > input:focus ~ label,
+.form > .inputs > div:has(p ) > input:not(:placeholder-shown) ~ label {
+  transform: translateY(-205%) !important;
+}
+
+.form > .inputs > div:has(p + p) > input:focus ~ label,
+.form > .inputs > div:has(p + p) > input:not(:placeholder-shown) ~ label {
+  transform: translateY(-275%) !important;
+}
+
+.form label {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  color: var(--dark-color);
+  transform: translateY(-50%);
+  font-weight: 500;
+  transition: transform 200ms ease-in, left 200ms ease-in,
+    font-size 200ms ease-in;
+}
+
+.form > .inputs > div:has(button) {
+  transform: none;
+}
+
+.form button {
+  font-weight: 500;
+  font-size: 2rem;
+  background-color: var(--primary-color);
+}
+
+.form a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form div:has(button) {
+  max-width: 35rem;
+}
+
+.form a:last-of-type {
+  text-align: center;
+}
+
+.form a:hover {
+  text-decoration: underline;
 }

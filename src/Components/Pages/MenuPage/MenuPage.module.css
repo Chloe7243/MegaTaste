@@ -134,7 +134,8 @@
   align-items: center;
   display: flex;
   gap: 8rem;
-  transition: 500ms ease-out;
+  transition: 1s ease-out;
+
 }
 
 .how-we-work > div > div > div {
@@ -233,8 +234,6 @@ article:nth-child(3) .step::before {
 video {
   width: 50%;
   /* width: 75rem; */
-  aspect-ratio: 1;
-  background: #000;
   border-radius: 2rem;
   /* transform: translateX(10%); */
 }
@@ -254,13 +253,17 @@ video {
   }
 }
 
-.video button {
+.video a {
+  color: #000;
   background: #f5f5f5;
   font-size: 2rem;
   padding: 2rem;
   height: 10rem;
   width: 10rem;
   border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   animation: glow 5s infinite;
 }

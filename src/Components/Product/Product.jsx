@@ -10,10 +10,12 @@ const Product = ({ product, query }) => {
       to={query ? `/menu/${query}/${product.id}` : `${product.id}`}
       className={styles.product}
     >
-      <img src={product.image} alt="Soup" className={styles["product-image"]} />
+      <div className={styles["product-image"]}>
+        <img src={product.image} alt={product.title || product.name} />
+      </div>
       <div className={styles["product-details"]}>
         <div>
-          <p>{product.title || product.name}</p>
+          <p className={styles.title}>{product.title || product.name}</p>
           <p className={styles.price}>
             {"\u20A6 " + Math.round(product.id / 100)}
           </p>

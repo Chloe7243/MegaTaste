@@ -12,8 +12,8 @@
 }
 
 .products {
-  background: #000;
   padding: 10rem 0;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;

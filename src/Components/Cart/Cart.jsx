@@ -1,5 +1,5 @@
 import styles from "./Cart.module.css";
-import Button from "../UI/Button/Button";
+import Button from "../ui/Button/Button";
 import { TfiClose } from "react-icons/tfi";
 import { PiCaretUpLight, PiCaretDownLight } from "react-icons/pi";
 import CartProduct from "../CartProduct/CartProduct";

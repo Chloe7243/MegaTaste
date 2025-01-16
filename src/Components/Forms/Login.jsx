@@ -1,5 +1,5 @@
 import Form from "../Form";
-import Button from "../UI/Button/Button";
+import Button from "../ui/Button/Button";
 import Banner from "../Banner/Banner";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

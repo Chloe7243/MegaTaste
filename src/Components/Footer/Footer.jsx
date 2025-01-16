@@ -1,8 +1,8 @@
 import Logo from "../Logo/Logo";
-import Input from "../UI/Input/Input";
-import Button from "../UI/Button/Button";
-import Container from "../UI/Container/Container";
-import FooterLink from "../UI/FooterLink/FooterLink";
+import Input from "../ui/Input/Input";
+import Button from "../ui/Button/Button";
+import Container from "../ui/Container/Container";
+import FooterLink from "../ui/FooterLink/FooterLink";
 
 import styles from "./Footer.module.css";
 import visa from "../../assets/visa.svg";

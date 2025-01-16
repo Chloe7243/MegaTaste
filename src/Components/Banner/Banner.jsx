@@ -4,7 +4,7 @@ import { AiFillHome } from "react-icons/ai";
 import bannerImage1 from "../../assets/steak.png";
 import bannerImage2 from "../../assets/cocktail.png";
 
-import Container from "../UI/Container/Container";
+import Container from "../ui/Container/Container";
 
 const Banner = ({ pageName, children }) => {
   return (

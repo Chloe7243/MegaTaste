@@ -2,19 +2,19 @@ import "./App.css";
 // import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Login from "./Components/Forms/Login";
-import RootLayout from "./Components/RootLayout/RootLayout";
-import Register from "./Components/Forms/Register";
+import Login from "./components/Forms/Login";
+import RootLayout from "./components/RootLayout/RootLayout";
+import Register from "./components/Forms/Register";
 
-import MenuPage from "./Components/Pages/MenuPage/MenuPage";
-import HomePage from "./Components/Pages/HomePage/HomePage";
-import Contact from "./Components/Pages/ContactPage/Contact";
-import AboutPage from "./Components/Pages/AboutPage/AboutPage";
-import CategoryPage from "./Components/Pages/CategoryPage/CategoryPage";
-import SearchResult from "./Components/Pages/SearchResultPage/SearchResult";
-import ProductDetails from "./Components/Pages/ProductDetailsPage/ProductDetails";
+import MenuPage from "./pages/MenuPage/MenuPage";
+import HomePage from "./pages/HomePage/HomePage";
+import Contact from "./pages/ContactPage/Contact";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import SearchResult from "./pages/SearchResultPage/SearchResult";
+import ProductDetails from "./pages/ProductDetailsPage/ProductDetails";
 import { AppProvider } from "./contexts/app-contexts";
-import ErrorPage from "./Components/Pages/ErrorPage/ErrorPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 function App() {
   return (

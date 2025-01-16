@@ -1,6 +1,6 @@
-import Container from "../UI/Container/Container";
+import Container from "../ui/Container/Container";
 import styles from "./SearchBar.module.css";
-import Input from "../UI/Input/Input";
+import Input from "../ui/Input/Input";
 import { HiOutlineSearch } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { TfiClose } from "react-icons/tfi";

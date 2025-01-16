@@ -3,7 +3,7 @@ import { PiUserCirclePlusLight } from "react-icons/pi";
 import { LuMailOpen, LuSmartphone } from "react-icons/lu";
 
 import styles from "./Info.module.css";
-import Container from "../UI/Container/Container";
+import Container from "../ui/Container/Container";
 import { useContext } from "react";
 import AppContexts from "../../contexts/app-contexts";
 

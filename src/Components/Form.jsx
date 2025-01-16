@@ -1,4 +1,4 @@
-import Container from "./UI/Container/Container";
+import Container from "./ui/Container/Container";
 const Form = ({
   containerClasname,
   children,
